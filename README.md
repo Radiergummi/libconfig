@@ -38,16 +38,16 @@ That will add the following to the config array:
 ```
 Array
 (
-    [font] => Array
-      (
-        [roboto] => Array
-          (
-            [italic] => Array
-              (
-                [regular] => roboto-regular-italic.woff
-              )
-          )
-      )
+  [font] => Array
+    (
+      [roboto] => Array
+        (
+          [italic] => Array
+            (
+              [regular] => roboto-regular-italic.woff
+            )
+        )
+    )
 )
 ```
 
