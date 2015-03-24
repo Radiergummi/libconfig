@@ -10,10 +10,10 @@ Create a config object like this:
 where `$data` can be an array or a json string.  
 
 To directly include a json file like the one below, use 
-```
+```php
 $config = new Config(file_get_contents('example.json'));
 ```
-```
+```json
 {
   "foo" => "bar"
 }
@@ -21,10 +21,10 @@ $config = new Config(file_get_contents('example.json'));
 &nbsp;  
 
 I often use php files like the one below to store configuration. So you could also use 
-```
+```php
 $config = new Config(require('example.php'));
 ```
-```
+```php
 <?
 return array(
   'foo' => 'bar'
