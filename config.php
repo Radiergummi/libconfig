@@ -5,14 +5,15 @@
  *
  */
 class Config {
-	
+
 	/**
 	 * @var data
 	 * 
 	 * holds the configuration
 	 */
 	private $data = array();
-	
+
+
 	/**
 	 * Constructor
 	 * Populates the data array with the values injected at runtime
@@ -37,8 +38,8 @@ class Config {
 
 	  return $data;
 	}
-	  
-	
+
+
 	/**
 	 * merges the config data with another array
 	 * 
@@ -77,7 +78,8 @@ class Config {
 			return $values;
 		}
 	}
-	
+
+
 	/**
 	 * sets a value in the config array
 	 * 
@@ -99,4 +101,14 @@ class Config {
 		}
 		$array[array_shift($keys)] = $value;
 	}
+
+
+	/**
+	 * returns the complete config array. Mainly for debug purposes, but what do I know? I'm just a comment.'
+	 * 
+	 * @return array $data the complete config array
+	 */
+	 public function __tostring() {
+	 	return $this->data;
+	 }
 }
