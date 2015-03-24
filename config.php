@@ -23,6 +23,7 @@ class Config {
 	  $this->data = (is_array($data) ? $data : $this->parse($data));
 	}
   
+  
 	  /**
 	   * parses the input given as a json string
 	   * 
@@ -47,15 +48,10 @@ class Config {
 	   */
 	  public function add($input) {
 	  	$data = (is_array($input) ? $input : $this->parse($input));
-	  	// maybe array_replace_recursive as optional parameter?
-	  	if ($data[0] == 'error') return false;
-	  	
-	  	$this->data = array_merge($input, $$this->data);
+	  	$this->data = array_replace_recursive($input, $this->data);
 	  }
 
 
-
-	
 	/**
 	 * gets a value from the config array
 	 *
