@@ -8,17 +8,21 @@ Create a config object like this:
 ```
 where `$data` can be an array or a json string.  
 
-To directly include a json file, use 
+To directly include a json file like the one below, use 
 ```
 $config = new Config(file_get_contents('example.json'));
 ```
+```
+{
+  "foo" => "bar"
+}
+```
 &nbsp;  
 
-I often use php files like the one below to store configuration. So you also use 
+I often use php files like the one below to store configuration. So you could also use 
 ```
 $config = new Config(require('example.php'));
 ```
-
 ```
 <?
 return array(
