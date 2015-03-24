@@ -15,7 +15,7 @@ $config = new Config(file_get_contents('example.json'));
 ```
 ```json
 {
-  "foo" => "bar"
+  "foo" : "bar"
 }
 ```
 &nbsp;  
@@ -100,6 +100,6 @@ $config->add(file_get_contents('another.json'));
 
 ##### __tostring
 returns the complete data array:
-```
+```php
 print_r($config); // Array
 ```
