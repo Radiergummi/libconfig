@@ -30,7 +30,7 @@ class Config {
 	   * 
 	   * @return array the parsed data
 	   */
-	  private function parse(string $input) {
+	  private function parse($input) {
 	    $data = json_decode($input, true);
 	    if (json_last_error() != 0) $data = ['error'];
 	    
