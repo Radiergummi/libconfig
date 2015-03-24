@@ -36,6 +36,23 @@ class Config {
     
     return $data;
   }
+  
+
+  /**
+   * merges the config data with another array
+   * 
+   * @param string $input the JSON string
+   * 
+   * @return array the parsed data
+   */
+  public function add($input) {
+  	$data = (is_array($input) ? $input : $this->parse($input));
+  	// array_replace_recursive
+  	
+  }
+
+
+
 
 	/**
 	 * gets a value from the config array
