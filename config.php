@@ -33,7 +33,9 @@ class Config {
 	 */
 	private function parse($input) {
 	  $data = json_decode($input, true);
-	  if (json_last_error() != 0) { //TODO: Throw exception }
+	  if ($error = json_last_error() != 0) {
+	  	throw new Exception('Error while parsing JSON: ' . $error);
+	  }
 
 	  return $data;
 	}
