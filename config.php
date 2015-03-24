@@ -24,32 +24,32 @@ class Config {
 	}
   
   
-	  /**
-	   * parses the input given as a json string
-	   * 
-	   * @param string $input the JSON string
-	   * 
-	   * @return array the parsed data
-	   */
-	  private function parse($input) {
-	    $data = json_decode($input, true);
-	    if (json_last_error() != 0) { //TODO: Throw exception }
-	    
-	    return $data;
-	  }
+	/**
+	 * parses the input given as a json string
+	 * 
+	 * @param string $input the JSON string
+	 * 
+	 * @return array the parsed data
+	 */
+	private function parse($input) {
+	  $data = json_decode($input, true);
+	  if (json_last_error() != 0) { //TODO: Throw exception }
+
+	  return $data;
+	}
 	  
 	
-	  /**
-	   * merges the config data with another array
-	   * 
-	   * @param string $input the JSON string
-	   * 
-	   * @return array the parsed data
-	   */
-	  public function add($input) {
-	  	$data = (is_array($input) ? $input : $this->parse($input));
-	  	$this->data = array_replace_recursive($input, $this->data);
-	  }
+	/**
+	 * merges the config data with another array
+	 * 
+	 * @param string $input the JSON string
+	 * 
+	 * @return array the parsed data
+	 */
+	public function add($input) {
+		$data = (is_array($input) ? $input : $this->parse($input));
+		$this->data = array_replace_recursive($data, $this->data);
+	}
 
 
 	/**
