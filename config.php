@@ -7,9 +7,9 @@
 class Config {
 
 	/**
-	 * @var data
-	 * 
 	 * holds the configuration
+	 * 
+	 * @var data
 	 */
 	private $data = array();
 
