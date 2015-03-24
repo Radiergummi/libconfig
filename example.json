@@ -1,0 +1,47 @@
+{
+	"fonts": {
+		"roboto": {
+			"thin": {
+				"ttf": "roboto-thin.ttf",
+				"woff": "roboto-thin.woff",
+				"woff2": "roboto-thin.woff2"
+			},
+			"regular": {
+				"ttf": "roboto-regular.ttf",
+				"woff": "roboto-regular.woff",
+				"woff2": "roboto-regular.woff2"
+			},
+			"italic": {
+				"ttf": "roboto-italic.ttf",
+				"woff": "roboto-italic.woff",
+				"woff2": "roboto-italic.woff2"
+			},
+			"semibold": {
+				"ttf": "roboto-semibold.ttf",
+				"woff": "roboto-semibold.woff",
+				"woff2": "roboto-semibold.woff2"
+			},
+			"bold": {
+				"ttf": "roboto-bold.ttf",
+				"woff": "roboto-bold.woff",
+				"woff2": "roboto-bold.woff2"
+			},
+			"black": {
+				"ttf": "roboto-black.ttf",
+				"woff": "roboto-black.woff",
+				"woff2": "roboto-black.woff2"
+			}
+		},
+		"roboto-condensed": {
+			"thin": {
+				"ttf": "roboto-condensed-thin.ttf",
+				"woff": "roboto-condensed-thin.woff",
+				"woff2": "roboto-condensed-thin.woff2"
+			},
+			"regular": {
+				"ttf": "roboto-condensed-regular.ttf",
+				"woff": "roboto-condensed-regular.woff",
+				"woff2": "roboto-condensed-regular.woff2"
+			}
+	}
+}
