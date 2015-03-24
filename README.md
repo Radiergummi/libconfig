@@ -8,12 +8,21 @@ Create a config object like this:
 ```
 where `$data` can be an array or a json string.  
 
-To directly include a json file, use
-```php
-  $config = new Config(file_get_contents('example.json'));
+To directly include a json file, use `$config = new Config(file_get_contents('example.json'));`.
+&nbsp;  
+
+I often use php files like the one below to store configuration. So you also use `$config = new Config(require('example.php'));`.
+
 ```
+<?
+return array(
+  'foo' => 'bar'
+);
+```
+
 &nbsp;  
 &nbsp;  
+
 
 ### Methods
 
@@ -72,4 +81,14 @@ $fontfile = $config->get('font.roboto.italic.regular'); // roboto-regular-italic
 Adds another array to the configuration. The data is merged, which means that keys with the same name will overwrite previously existing ones. Maybe a possibility to insert them with changed names should be implemented here? 
 ```php
 $config->add(file_get_contents('another.json'));
+```
+
+&nbsp;  
+&nbsp;  
+### Magic methods
+
+##### __tostring
+returns the complete data array:
+```
+print_r($config); // Array
 ```
