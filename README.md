@@ -22,11 +22,35 @@ inserts a value into a key:
 ```php
 $config->set('foo', 'bar');
 ```
+That will add the following to the config array:
+```
+Array
+(
+    [foo] => bar
+)
+```
 
 To set nested config values, you can use dots to seperate keys:
 ```php
 $config->set('font.roboto.italic.regular', 'roboto-regular-italic.woff');
 ```
+That will add the following to the config array:
+```
+Array
+(
+    [font] => Array
+      (
+        [roboto] => Array
+          (
+            [italic] => Array
+              (
+                [regular] => roboto-regular-italic.woff
+              )
+          )
+      )
+)
+```
+
 &nbsp;  
 &nbsp;  
 
