@@ -44,8 +44,8 @@ $fontfile = $config->get('font.roboto.italic.regular'); // roboto-regular-italic
 &nbsp;  
 &nbsp;  
 
-##### //TODO: add
-Adds another array to the configuration
+##### add
+Adds another array to the configuration. The data is merged, which means that keys with the same name will overwrite previously existing ones. Maybe a possibility to insert them with changed names should be implemented here? 
 ```php
 $config->add(file_get_contents('another.json'));
 ```
