@@ -1,5 +1,6 @@
 ## php-config
-Simple php library to import settings from a config file into a modifyable config object.  
+Simple php class to create a key-value storage.
+
 
 ### Usage
 Create a config object like this:
