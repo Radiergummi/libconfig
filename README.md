@@ -12,6 +12,8 @@ To directly include a json file, use
 ```php
   $config = new Config(file_get_contents('example.json'));
 ```
+&nbsp;  
+&nbsp;  
 
 ### Methods
 
@@ -25,8 +27,8 @@ To set nested config values, you can use dots to seperate keys:
 ```php
 $config->set('font.roboto.italic.regular', 'roboto-regular-italic.woff');
 ```
-
-
+&nbsp;  
+&nbsp;  
 
 ##### get
 returns the value for a given key:
@@ -39,8 +41,8 @@ To access nested config values, you can use dots to seperate keys:
 $fontlist = $config->get('font.roboto.italic'); // Array
 $fontfile = $config->get('font.roboto.italic.regular'); // roboto-regular-italic.woff
 ```
-
-
+&nbsp;  
+&nbsp;  
 
 ##### //TODO: add
 Adds another array to the configuration
