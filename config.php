@@ -29,7 +29,6 @@ class Config {
 	 * parses the input given as a json string
 	 * 
 	 * @param string $input the JSON string
-	 * 
 	 * @return array the parsed data
 	 */
 	private function parse($input) {
@@ -44,7 +43,6 @@ class Config {
 	 * merges the config data with another array
 	 * 
 	 * @param string $input the JSON string
-	 * 
 	 * @return array the parsed data
 	 */
 	public function add($input) {
