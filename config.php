@@ -23,37 +23,39 @@ class Config {
 	  $this->data = (is_array($data) ? $data : $this->parse($data));
 	}
   
-  /**
-   * parses the input given as a json string
-   * 
-   * @param string $input the JSON string
-   * 
-   * @return array the parsed data
-   */
-  private function parse(string $input) {
-    $data = json_decode($input, true);
-    if (json_last_error() != 0) $data = ['error'];
-    
-    return $data;
-  }
-  
+	  /**
+	   * parses the input given as a json string
+	   * 
+	   * @param string $input the JSON string
+	   * 
+	   * @return array the parsed data
+	   */
+	  private function parse(string $input) {
+	    $data = json_decode($input, true);
+	    if (json_last_error() != 0) $data = ['error'];
+	    
+	    return $data;
+	  }
+	  
+	
+	  /**
+	   * merges the config data with another array
+	   * 
+	   * @param string $input the JSON string
+	   * 
+	   * @return array the parsed data
+	   */
+	  public function add($input) {
+	  	$data = (is_array($input) ? $input : $this->parse($input));
+	  	// maybe array_replace_recursive as optional parameter?
+	  	if ($data[0] == 'error') return false;
+	  	
+	  	$this->data = array_merge($input, $$this->data);
+	  }
 
-  /**
-   * merges the config data with another array
-   * 
-   * @param string $input the JSON string
-   * 
-   * @return array the parsed data
-   */
-  public function add($input) {
-  	$data = (is_array($input) ? $input : $this->parse($input));
-  	// array_replace_recursive
-  	
-  }
 
 
-
-
+	
 	/**
 	 * gets a value from the config array
 	 *
@@ -88,6 +90,17 @@ class Config {
 	 * @return void;
 	 */
 	public function set($key, $value) {
-		$this->data[$key] = $value;
+		$array =& $this->data;
+		$keys = explode('.', $key);
+		// traverse the array into the second last key
+		while(count($keys) > 1) {
+			$key = array_shift($keys);
+			// make sure we have an array to set our new key in
+			if( ! array_key_exists($key, $array)) {
+				$array[$key] = array();
+			}
+			$array =& $array[$key];
+		}
+		$array[array_shift($keys)] = $value;
 	}
 }
