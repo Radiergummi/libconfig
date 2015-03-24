@@ -8,10 +8,16 @@ Create a config object like this:
 ```
 where `$data` can be an array or a json string.  
 
-To directly include a json file, use `$config = new Config(file_get_contents('example.json'));`.
+To directly include a json file, use 
+```
+$config = new Config(file_get_contents('example.json'));
+```
 &nbsp;  
 
-I often use php files like the one below to store configuration. So you also use `$config = new Config(require('example.php'));`.
+I often use php files like the one below to store configuration. So you also use 
+```
+$config = new Config(require('example.php'));
+```
 
 ```
 <?
