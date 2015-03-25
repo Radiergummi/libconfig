@@ -1,5 +1,10 @@
 <?
 
+// enable these if you intend to use this library in its own namespace!
+# namespace Configuration;
+# use ArrayAccess;
+# use Iterator;
+# use Countable;
 
 /**
  * General purpose config class
@@ -7,7 +12,7 @@
  * @package php-config
  * @author Moritz Friedrich <m@9dev.de>
  */
-class Config implements arrayaccess {
+class Config implements ArrayAccess, Iterator, Countable {
 
 	/**
 	 * holds the configuration
@@ -144,6 +149,10 @@ class Config implements arrayaccess {
 	 }
 
 	
+	/**
+	 * ArrayAccess Interface
+	 * 
+	 */
 	public function offsetSet($offset, $value) {
 		if (is_null($offset)) {
 			$this->data[] = $value;
@@ -152,18 +161,51 @@ class Config implements arrayaccess {
 		}
 	}
 
-
 	public function offsetExists($offset) {
 		return isset($this->data[$offset]);
 	}
-
 
 	public function offsetUnset($offset) {
 		unset($this->data[$offset]);
 	}
 
-
 	public function offsetGet($offset) {
 		return isset($this->data[$offset]) ? $this->data[$offset] : null;
+	}
+	
+	
+	/**
+	* Iterator Interface
+	*
+	*/
+	public function rewind() {
+		$this->iteratorCount = 0;
+	}
+	
+	public function current() {
+		$values = array_values($this->data);
+	return $values[$this->iteratorCount];
+	}
+	
+	public function key() {
+		$keys = array_keys($this->data);
+		return $keys[$this->iteratorCount];
+	}
+	
+	public function next() {
+		$this->iteratorCount++;
+	}
+	
+	public function valid() {
+		$values = array_values($this->data);
+		return (isset($values[$this->iteratorCount]));
+	}
+	
+	/**
+	* Count Interface
+	*
+	*/
+	public function count() {
+		return count($this->data);
 	}
 }
