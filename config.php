@@ -23,14 +23,7 @@ class Config {
 	 * @param mixed $data The raw input data
 	 */
 	public function __construct($data) {
-		if (is_dir($data)) {
-			if (! is_readable($data)) throw new Exception('Directory is not readable.');
-			foreach (scandir($data) as $file) {
-		
-				if (! is_readable($file)) throw new Exception('File is not readable.');
-				$this->parse(file_get_contents($file), );
-			}	
-		}
+
 
 		$this->data = (is_array($data) ? $data : $this->parse($data));
 	}
@@ -60,6 +53,19 @@ class Config {
 	 * @return void
 	 */
 	public function add($input, $toMerge = null) {
+		if (is_dir($input)) {
+			if (! is_readable($input)) throw new Exception('Directory is not readable.');
+			foreach (scandir($input) as $file) {
+				if (! is_readable($file)) throw new Exception('File is not readable.');
+				
+				$this->add($this->parse(file_get_contents($file)));
+			}	
+		} else if (is_file($input)) {
+			if (! is_readable($file)) throw new Exception('File is not readable.');
+			
+			$input = $this->parse(file_get_contents($input));
+		}
+
 		// if the function is called from within itself, use the array provided as a parameter
 		$arr1 = (is_array($toMerge) ? $toMerge : $this->$data);
 		$arr2 = (is_array($input) ? $input : $this->parse($input));
