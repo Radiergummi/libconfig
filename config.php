@@ -23,7 +23,16 @@ class Config {
 	 * @param mixed $data The raw input data
 	 */
 	public function __construct($data) {
-	  $this->data = (is_array($data) ? $data : $this->parse($data));
+		if (is_dir($data)) {
+			if (! is_readable($data)) throw new Exception('Directory is not readable.');
+			foreach (scandir($data) as $file) {
+		
+				if (! is_readable($file)) throw new Exception('File is not readable.');
+				$this->parse(file_get_contents($file), );
+			}	
+		}
+
+		$this->data = (is_array($data) ? $data : $this->parse($data));
 	}
   
   
@@ -34,12 +43,12 @@ class Config {
 	 * @return array the parsed data
 	 */
 	private function parse($input) {
-	  $data = json_decode($input, true);
-	  if ($error = json_last_error() != 0) {
-	  	throw new Exception('Error while parsing JSON: ' . $error);
-	  }
+		$data = json_decode($input, true);
+		if ($error = json_last_error() != 0) {
+			throw new Exception('Error while parsing JSON: ' . $error);
+		}
 
-	  return $data;
+		return $data;
 	}
 
 
