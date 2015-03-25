@@ -49,31 +49,37 @@ class Config implements arrayaccess {
 	/**
 	 * merges the config data with another array
 	 * 
-	 * @param string $input the JSON string
+	 * @param string|array $input the data to add
 	 * @return void
 	 */
 	public function add($input) {
+		// determine if array or path given
 		if (is_string($input)) {
 			if (is_dir($input)) {
 				if (! is_readable($input)) throw new Exception('Directory is not readable.');
-				foreach (scandir($input) as $file) {
-					if (! is_readable($file)) throw new Exception('File is not readable.');
-					
-					$this->add($this->parse(file_get_contents($file)));
+				
+				// add each file in a directory to the config
+				foreach (array_diff(scandir($input), array('..', '.')) as $file) {
+					$this->add($file);
 				}
+				
+				// break out
 				return;
 			} else if (is_file($input)) {
 				if (! is_readable($input)) throw new Exception('File is not readable.');
 				
-				$input = $this->add($this->parse(file_get_contents($input)));
+				$this->add($this->parse(file_get_contents($input)));
+				
+				// break out
 				return;
+			} else {
+				// attempt to parse input
+				$this->add($this->parse($input));
 			}
 		}
-
-		$data = (is_array($input) ? $input : $this->parse($input));
-		$this->data = array_replace_recursive($data, $this->data);
+		// merge the arrays 
+		$this->data = array_replace_recursive($input, $this->data);
 	}
-
 
 	/**
 	 * gets a value from the config array
