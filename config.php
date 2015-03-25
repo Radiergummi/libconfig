@@ -50,12 +50,14 @@ class Config {
 	 * @param string $input the JSON string
 	 * @return void
 	 */
-	public static function add($input, $toMerge = null) {
+	public function add($input, $toMerge = null) {
+		// if the function is called from within itself, use the array provided as a parameter
 		$arr1 = (is_array($toMerge) ? $toMerge : $this->$data);
 		$arr2 = (is_array($input) ? $input : $this->parse($input));
+
 		foreach ($arr2 as $key => $value) {
 			if (array_key_exists($key, $arr1) && is_array($value)) {
-				$arr1[$key] = add($arr2[$key], $arr1[$key]);
+				$arr1[$key] = $this->add($arr2[$key], $arr1[$key]);
 			} else {
 				$arr1[$key] = $value;
 			}
