@@ -108,6 +108,14 @@ $config->add(file_get_contents('another.json'));
 
 &nbsp;  
 &nbsp;  
+### Array access
+You can also access all data as an array:
+```
+$port = $config['app']['server']['port']; // 8080
+```
+
+&nbsp;  
+&nbsp;  
 ### Magic methods
 
 ##### __tostring
