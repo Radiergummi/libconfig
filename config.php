@@ -111,4 +111,14 @@ class Config {
 	 public function __tostring() {
 	 	return $this->data;
 	 }
+
+
+	/**
+	 * returns the complete config array. Mainly for debug purposes, but what do I know? I'm just a comment.'
+	 * 
+	 * @return array $data the complete config array
+	 */
+	 public function __callStatic($method, $arguments) {
+	 	return $this->$method(implode(', ', $arguments));
+	 }
 }
