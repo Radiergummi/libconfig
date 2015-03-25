@@ -109,7 +109,7 @@ $config->add(file_get_contents('another.json'));
 &nbsp;  
 &nbsp;  
 ### Array access
-You can also access all data as an array:
+You can also access and edit all data as an array:
 ```
 $port = $config['app']['server']['port']; // 8080
 ```
