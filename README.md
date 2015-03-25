@@ -85,6 +85,12 @@ To access nested config values, you can use dots to seperate keys:
 $fontlist = $config->get('font.roboto.italic'); // Array
 $fontfile = $config->get('font.roboto.italic.regular'); // roboto-regular-italic.woff
 ```
+
+You can optionally specify a fallback value in case the desired key is not present:
+```
+$config->get('app.server.port', '8080');
+```
+
 &nbsp;  
 &nbsp;  
 
