@@ -91,6 +91,12 @@ You can optionally specify a fallback value in case the desired key is not prese
 $config->get('app.server.port', '8080');
 ```
 
+To retrieve the whole configuration, just call get without arguments:
+```
+$config->get();
+```
+
+
 &nbsp;  
 &nbsp;  
 
