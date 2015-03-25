@@ -46,12 +46,21 @@ class Config {
 	/**
 	 * merges the config data with another array
 	 * 
+	 * From: http://www.php.net/manual/en/function.array-merge-recursive.php#102379
 	 * @param string $input the JSON string
-	 * @return array the parsed data
+	 * @return void
 	 */
-	public function add($input) {
-		$data = (is_array($input) ? $input : $this->parse($input));
-		$this->data = array_replace_recursive($data, $this->data);
+	public static function add($input, $toMerge = null) {
+		$arr1 = (is_array($toMerge) ? $toMerge : $this->$data);
+		$arr2 = (is_array($input) ? $input : $this->parse($input));
+		foreach ($arr2 as $key => $value) {
+			if (array_key_exists($key, $arr1) && is_array($value)) {
+				$arr1[$key] = add($arr2[$key], $arr1[$key]);
+			} else {
+				$arr1[$key] = $value;
+			}
+		}
+		$this->$data = $arr1;
 	}
 
 
