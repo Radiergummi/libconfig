@@ -7,7 +7,7 @@
  * @package php-config
  * @author Moritz Friedrich <m@9dev.de>
  */
-class Config {
+class Config implements arrayaccess {
 
 	/**
 	 * holds the configuration
