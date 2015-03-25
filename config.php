@@ -69,11 +69,14 @@ class Config {
 	/**
 	 * gets a value from the config array
 	 *
-	 * @param string $key the config key in question
+	 * @param string $key (optional) the config key in question
 	 * @param mixed $fallback (optional) a fallback value in case the config is empty
 	 * @return the value of $data[$key]
 	 */
-	public function get($key, $fallback = null) {
+	public function get($key = null, $fallback = null) {
+		// return the whole config if no key specified
+		if (! $key) return $this->data;
+
 		$keys = explode('.', $key);
 		$values = $this->data;
 		if (count($keys) == 1) {
