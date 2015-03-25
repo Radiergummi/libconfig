@@ -1,5 +1,6 @@
 <?
 
+
 /**
  * General purpose config class
  * 
@@ -48,36 +49,29 @@ class Config {
 	/**
 	 * merges the config data with another array
 	 * 
-	 * From: http://www.php.net/manual/en/function.array-merge-recursive.php#102379
 	 * @param string $input the JSON string
 	 * @return void
 	 */
-	public function add($input, $toMerge = null) {
-		if (is_dir($input)) {
-			if (! is_readable($input)) throw new Exception('Directory is not readable.');
-			foreach (scandir($input) as $file) {
-				if (! is_readable($file)) throw new Exception('File is not readable.');
+	public function add($input) {
+		if (is_string($input)) {
+			if (is_dir($input)) {
+				if (! is_readable($input)) throw new Exception('Directory is not readable.');
+				foreach (scandir($input) as $file) {
+					if (! is_readable($file)) throw new Exception('File is not readable.');
+					
+					$this->add($this->parse(file_get_contents($file)));
+				}
+				return;
+			} else if (is_file($input)) {
+				if (! is_readable($input)) throw new Exception('File is not readable.');
 				
-				$this->add($this->parse(file_get_contents($file)));
-			}	
-		} else if (is_file($input)) {
-			if (! is_readable($file)) throw new Exception('File is not readable.');
-			
-			$input = $this->parse(file_get_contents($input));
-		}
-
-		// if the function is called from within itself, use the array provided as a parameter
-		$arr1 = (is_array($toMerge) ? $toMerge : $this->$data);
-		$arr2 = (is_array($input) ? $input : $this->parse($input));
-
-		foreach ($arr2 as $key => $value) {
-			if (array_key_exists($key, $arr1) && is_array($value)) {
-				$arr1[$key] = $this->add($arr2[$key], $arr1[$key]);
-			} else {
-				$arr1[$key] = $value;
+				$input = $this->add($this->parse(file_get_contents($input)));
+				return;
 			}
 		}
-		$this->$data = $arr1;
+
+		$data = (is_array($input) ? $input : $this->parse($input));
+		$this->data = array_replace_recursive($data, $this->data);
 	}
 
 
@@ -143,17 +137,6 @@ class Config {
 	 	return $this->data;
 	 }
 
-
-	/**
-	 * returns the complete config array. Mainly for debug purposes, but what do I know? I'm just a comment.'
-	 * 
-	 * @return array $data the complete config array
-	 */
-	 public function __callStatic($method, $arguments) {
-	 	return $this->$method(implode(', ', $arguments));
-	 }
-	
-	
 	
 	public function offsetSet($offset, $value) {
 		if (is_null($offset)) {
