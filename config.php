@@ -2,7 +2,9 @@
 
 /**
  * General purpose config class
- *
+ * 
+ * @package php-config
+ * @author Moritz Friedrich <m@9dev.de>
  */
 class Config {
 
