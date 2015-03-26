@@ -17,9 +17,17 @@ class Config implements ArrayAccess, Iterator, Countable {
 	/**
 	 * holds the configuration
 	 * 
-	 * @var data
+	 * @var array
 	 */
 	private $data = array();
+
+
+	/**
+	 * Iterator Access Counter
+	 * 
+	 * @var int
+	 */
+	private $iteratorCount = 0;
 
 
 	/**
