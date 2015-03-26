@@ -108,7 +108,19 @@ $config->add(file_get_contents('another.json'));
 
 &nbsp;  
 &nbsp;  
-### Array access
+### Magic methods
+
+##### __tostring
+returns the complete data array:
+```php
+print_r($config); // Array
+```
+
+&nbsp;  
+&nbsp;
+## Implemented Interfaces
+
+#### Array access
 You can also access and edit all data as an array:
 ```
 $port = $config['app']['server']['port']; // 8080
@@ -116,10 +128,18 @@ $port = $config['app']['server']['port']; // 8080
 
 &nbsp;  
 &nbsp;  
-### Magic methods
+#### Countable
+The Config object can be counted:
+```
+$settings = count($config);
+```
 
-##### __tostring
-returns the complete data array:
-```php
-print_r($config); // Array
+&nbsp;  
+&nbsp;  
+#### Iterator
+You are able to iterate over the Config object:
+```
+array_walk_recursive($config, function ($value, $key) {
+    echo "$key holds $value\n";
+});
 ```
