@@ -9,7 +9,7 @@ Create a config object like this:
 ```php
   $config = new Config($data);
 ```
-where `$data` can be an array or a json string.  
+where `$data` can be an array or a json string, a file or folder path.  
 
 To directly include a json file like the one below, use 
 ```php
