@@ -33,6 +33,7 @@ return array(
 );
 ```
 
+A note on INI files: Honestly, why would you want to use those for configuration when you have php and json at hand? Maybe when I get a good idea on how to implement that in an elegant way.
 &nbsp;  
 &nbsp;  
 
@@ -146,3 +147,17 @@ array_walk_recursive($config, function ($value, $key) {
     echo "$key holds $value\n";
 });
 ```
+
+## TODO
+#### Bugs
+- Counting the object recursively has no effect currently, and I don't know why.
+- Sometimes while parsing JSON, a JSON_LAST_ERROR 1 is thrown, meaning the maximum depth is reached, even if handling JSON with no nesting at all. There must be some recursion going on.
+
+#### Improvements
+- Parts of the code are a bit messy right now, especially the `add`-method.
+- I would like to modularize the internals a bit - parsing input should be done via drivers or at least inside of specialized methods for each content type.
+- libconfig should be unit tested, unfortunately, I've never done tests using PHPunit and need help with it.
+
+#### Features
+- INI Support (but just to stay competitive)
+- ?
