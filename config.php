@@ -38,7 +38,7 @@ class Config implements ArrayAccess, Iterator, Countable {
 	 */
 	public function __construct($data) {
 
-
+		// if we've got an array, use it, else, we assume this is json.
 		$this->data = (is_array($data) ? $data : $this->parse($data));
 	}
   
