@@ -148,6 +148,8 @@ array_walk_recursive($config, function ($value, $key) {
 });
 ```
 
+&nbsp;  
+&nbsp;  
 ## TODO
 #### Bugs
 - Counting the object recursively has no effect currently, and I don't know why.
@@ -161,3 +163,13 @@ array_walk_recursive($config, function ($value, $key) {
 #### Features
 - INI Support (but just to stay competitive)
 - ?
+ 
+&nbsp;  
+&nbsp;  
+## How to contribute
+I would love to see other people contribute their ideas to this project. However to ease the process, please keep the following in mind:  
+- If you find a bug, please create an issue for it, tag the issue with *bug* and include the code to reproduce it.
+- If you want to request or discuss a feature, please create an issue for it, tag it with *enhancement* and discribe it as detailed as possible.
+- If you want to contribute actual code, please fork the repository, create a new branch in your fork (eg. *feature-ini-support*), make your changes in it, and create a pull request. 
+
+Thank you!
