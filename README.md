@@ -111,6 +111,15 @@ $config->has('foo.sub.key'); // true
 &nbsp;  
 &nbsp;  
 
+##### erase
+removes a key from the settings
+```php
+$config->erase('foo.sub.key');
+```
+
+&nbsp;  
+&nbsp;  
+
 ##### add
 Adds another array to the configuration. The data is merged, which means that keys with the same name will overwrite previously existing ones. Maybe a possibility to insert them with changed names should be implemented here? 
 ```php
