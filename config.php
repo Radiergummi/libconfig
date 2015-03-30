@@ -125,6 +125,17 @@ class Config implements ArrayAccess, Iterator, Countable {
 
 
 	/**
+	 * checks wether a key is set or not
+	 *
+	 * @param string $key  the config key in question
+	 * @return bool wether the key exists or not
+	 */
+	public function has($key) {
+		return (! is_null($this->get($key))) ? true : false;	
+	}
+
+
+	/**
 	 * sets a value in the config array
 	 * 
 	 * @param string $key the config key in question
