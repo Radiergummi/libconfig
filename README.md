@@ -99,6 +99,14 @@ To retrieve the whole configuration, just call get without arguments:
 $config->get();
 ```
 
+&nbsp;  
+&nbsp;  
+
+##### has
+checks wether a setting exists or not
+```php
+$config->has('foo.sub.key'); // true
+```
 
 &nbsp;  
 &nbsp;  
