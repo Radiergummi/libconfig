@@ -159,6 +159,23 @@ class Config implements ArrayAccess, Iterator, Countable {
 
 
 	/**
+	 * erases a key from the array
+	 *
+	 * @param string $key the config key in question
+	 */
+	public function erase(string $key) {
+		$array =& $this->data;
+		$keys = explode('.', $key);
+		// traverse the array into the second last key
+		while(count($keys) > 1) {
+			$key = array_shift($keys);
+			$array =& $array[$key];
+		}
+		unset($array[array_shift($keys)]);
+	}
+
+
+	/**
 	 * returns the complete config array. Mainly for debug purposes, but what do I know? I'm just a comment.'
 	 * 
 	 * @return array $data the complete config array
