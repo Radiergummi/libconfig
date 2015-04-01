@@ -1,10 +1,9 @@
-<?
+<?php
+namespace Radiergummi\libconfig;
 
-// enable these if you intend to use this library in its own namespace!
-# namespace Configuration;
-# use ArrayAccess;
-# use Iterator;
-# use Countable;
+use ArrayAccess;
+use Iterator;
+use Countable;
 
 /**
  * General purpose config class
@@ -12,7 +11,8 @@
  * @package php-config
  * @author Moritz Friedrich <m@9dev.de>
  */
-class Config implements ArrayAccess, Iterator, Countable {
+class Config implements \ArrayAccess, \Iterator, \Countable
+{
 
 	/**
 	 * holds the configuration
@@ -36,7 +36,8 @@ class Config implements ArrayAccess, Iterator, Countable {
 	 *
 	 * @param mixed $data The raw input data
 	 */
-	public function __construct($data) {
+	public function __construct($data)
+	{
 
 		// if we've got an array, use it, else, we assume this is json.
 		$this->data = (is_array($data) ? $data : $this->parse($data));
@@ -49,7 +50,8 @@ class Config implements ArrayAccess, Iterator, Countable {
 	 * @param string $input the JSON string
 	 * @return array the parsed data
 	 */
-	private function parse($input) {
+	private function parse($input)
+	{
 		$data = json_decode($input, true);
 		if ($error = json_last_error() != 0) {
 			throw new Exception('Error while parsing JSON: ' . $error);
@@ -65,7 +67,8 @@ class Config implements ArrayAccess, Iterator, Countable {
 	 * @param string|array $input the data to add
 	 * @return void
 	 */
-	public function add($input) {
+	public function add($input)
+	{
 		// determine if array or path given
 		if (is_string($input)) {
 			if (is_dir($input)) {
@@ -101,7 +104,8 @@ class Config implements ArrayAccess, Iterator, Countable {
 	 * @param mixed $fallback (optional) a fallback value in case the config is empty
 	 * @return the value of $data[$key]
 	 */
-	public function get($key = null, $fallback = null) {
+	public function get($key = null, $fallback = null)
+	{
 		// return the whole config if no key specified
 		if (! $key) return $this->data;
 
@@ -130,7 +134,8 @@ class Config implements ArrayAccess, Iterator, Countable {
 	 * @param string $key  the config key in question
 	 * @return bool wether the key exists or not
 	 */
-	public function has($key) {
+	public function has($key)
+	{
 		return (! is_null($this->get($key))) ? true : false;	
 	}
 
@@ -142,7 +147,8 @@ class Config implements ArrayAccess, Iterator, Countable {
 	 * @param mixed $value the value to set 
 	 * @return void;
 	 */
-	public function set($key, $value) {
+	public function set($key, $value)
+	{
 		$array =& $this->data;
 		$keys = explode('.', $key);
 		// traverse the array into the second last key
@@ -163,7 +169,8 @@ class Config implements ArrayAccess, Iterator, Countable {
 	 *
 	 * @param string $key the config key in question
 	 */
-	public function erase(string $key) {
+	public function erase(string $key)
+	{
 		$array =& $this->data;
 		$keys = explode('.', $key);
 		// traverse the array into the second last key
@@ -180,7 +187,8 @@ class Config implements ArrayAccess, Iterator, Countable {
 	 * 
 	 * @return array $data the complete config array
 	 */
-	 public function __tostring() {
+	 public function __tostring()
+	 {
 	 	return $this->data;
 	 }
 
@@ -189,7 +197,8 @@ class Config implements ArrayAccess, Iterator, Countable {
 	 * ArrayAccess Interface
 	 * 
 	 */
-	public function offsetSet($offset, $value) {
+	public function offsetSet($offset, $value)
+	{
 		if (is_null($offset)) {
 			$this->data[] = $value;
 		} else {
@@ -197,15 +206,18 @@ class Config implements ArrayAccess, Iterator, Countable {
 		}
 	}
 
-	public function offsetExists($offset) {
+	public function offsetExists($offset)
+	{
 		return isset($this->data[$offset]);
 	}
 
-	public function offsetUnset($offset) {
+	public function offsetUnset($offset)
+	{
 		unset($this->data[$offset]);
 	}
 
-	public function offsetGet($offset) {
+	public function offsetGet($offset)
+	{
 		return isset($this->data[$offset]) ? $this->data[$offset] : null;
 	}
 	
@@ -214,25 +226,30 @@ class Config implements ArrayAccess, Iterator, Countable {
 	* Iterator Interface
 	*
 	*/
-	public function rewind() {
+	public function rewind()
+	{
 		$this->iteratorCount = 0;
 	}
 	
-	public function current() {
+	public function current()
+	{
 		$values = array_values($this->data);
 	return $values[$this->iteratorCount];
 	}
 	
-	public function key() {
+	public function key()
+	{
 		$keys = array_keys($this->data);
 		return $keys[$this->iteratorCount];
 	}
 	
-	public function next() {
+	public function next()
+	{
 		$this->iteratorCount++;
 	}
 	
-	public function valid() {
+	public function valid()
+	{
 		$values = array_values($this->data);
 		return (isset($values[$this->iteratorCount]));
 	}
@@ -241,7 +258,8 @@ class Config implements ArrayAccess, Iterator, Countable {
 	* Count Interface
 	*
 	*/
-	public function count() {
+	public function count()
+	{
 		return count($this->data);
 	}
 }
