@@ -11,12 +11,19 @@ class ConfigTest extends PHPUnit_Framework_TestCase
   function setUp()
   {
     parent::setUp();
-    $this->fixturePath = dirname(__FILE__) . '/fixtures/main/';
+    $this->fixturePath = dirname(__FILE__) . '/fixtures/';
   }
 
- public function testObjectCreated() 
+  public function testCreateObject() 
   {
-      $obj = new Radiergummi\Libconfig\Config();
-      $this->assertInstanceOf('Radiergummi\Libconfig\Config', $obj);
+    $obj = new Radiergummi\Libconfig\Config();
+    $this->assertInstanceOf('Radiergummi\Libconfig\Config', $obj);
   }
+
+  public function testCreateObjectWithArrayAsParameter()
+  {
+    $array = array('a', 'b', 'c');
+    $obj = new Radiergummi\Libconfig\Config($array);
+  }
+
 }
