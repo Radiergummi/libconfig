@@ -24,10 +24,10 @@ class ConfigTest extends PHPUnit_Framework_TestCase
 
   public function testGetValueFromConfig() 
   {
-    $array = array('a', 'b', 'c');
+    $array = array('a' => 'foo', 'b' => 'bar', 'c' => 'baz');
     $obj = new Radiergummi\Libconfig\Config($array);
 
-    $this->assertEquals('a', $obj->get('0'));
+    $this->assertEquals('foo', $obj->get('a'));
   }
 
 }
