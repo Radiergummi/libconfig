@@ -169,7 +169,7 @@ class Config implements \ArrayAccess, \Iterator, \Countable
 	 *
 	 * @param string $key the config key in question
 	 */
-	public function erase(string $key)
+	public function erase($key)
 	{
 		$array =& $this->data;
 		$keys = explode('.', $key);
