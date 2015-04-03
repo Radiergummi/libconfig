@@ -22,6 +22,14 @@ class ConfigTest extends PHPUnit_Framework_TestCase
     $this->assertInstanceOf('Radiergummi\Libconfig\Config', $obj);
   }
 
+  public function testCreateObjectWithJSONAsParameter()
+  {
+    $json = '{"a": "foo", "b": "bar", "c": "baz"}';
+    $obj = new Radiergummi\Libconfig\Config($json);
+    
+    $this->assertEquals('foo', $obj->get('a'));
+  }
+
   public function testGetValueFromConfig() 
   {
     $array = array('a' => 'foo', 'b' => 'bar', 'c' => 'baz');
@@ -30,4 +38,11 @@ class ConfigTest extends PHPUnit_Framework_TestCase
     $this->assertEquals('foo', $obj->get('a'));
   }
 
+  public function testGetNestedValueFromConfig()
+  {
+    $json = '{ "a": "foo", "b": { "sub": { "key": "value" } } }';
+    $obj = new Radiergummi\Libconfig\Config($json);
+    
+    $this->assertEquals('value', $obj->get('b.sub.key'));
+  }
 }
