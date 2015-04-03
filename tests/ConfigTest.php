@@ -27,7 +27,7 @@ class ConfigTest extends PHPUnit_Framework_TestCase
     $json = '{"a": "foo", "b": "bar", "c": "baz"}';
     $obj = new Radiergummi\Libconfig\Config($json);
     
-    $this->assertEquals('foo', $obj->get('a'));
+    $this->assertInstanceOf('Radiergummi\Libconfig\Config', $obj);
   }
 
   public function testGetValueFromConfig() 
@@ -48,7 +48,7 @@ class ConfigTest extends PHPUnit_Framework_TestCase
 
   public function testObjectHasValue()
   {
-    $json = {"a": "foo", "b": "bar", "c": "baz" }
+    $json = '{"a": "foo", "b": "bar", "c": "baz"}';
     $obj = new Radiergummi\Libconfig\Config($json);
     
     $this->assertTrue($obj->has('a'));
@@ -56,7 +56,7 @@ class ConfigTest extends PHPUnit_Framework_TestCase
 
   public function testEraseKeyFromObject()
   {
-    $json = {"a": "foo", "b": "bar", "c": "baz" }
+    $json = '{"a": "foo", "b": "bar", "c": "baz"}';
     $obj = new Radiergummi\Libconfig\Config($json);
 
     $this->assertTrue($obj->has('a'));
