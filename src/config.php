@@ -188,7 +188,7 @@ class Config implements \ArrayAccess, \Iterator, \Countable
 	 */
 	 public function __tostring()
 	 {
-	 	return $this->data;
+	 	return json_serialize($this->data);
 	 }
 
 	
