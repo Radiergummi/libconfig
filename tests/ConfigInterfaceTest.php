@@ -71,7 +71,7 @@ class ConfigInterfaceTest extends PHPUnit_Framework_TestCase
 
     $this->assertEquals('router', $obj[192][168][0][1]);
   }
-
+/*
   public function testArrayAccessInterfaceAlterValue()
   {
     $array = array('a' => 'foo', 'b' => 'bar', 'c' => 'baz', 'd' => array(1, 2, 3));
@@ -80,7 +80,7 @@ class ConfigInterfaceTest extends PHPUnit_Framework_TestCase
     $obj['b'] = 'notbar';
     $this->assertEquals('notbar', $obj['b']);
   }
-
+*/
   public function testArrayAccessInterfaceAlterNestedValue()
   {
     $array = array(192 => array(168 => array(0 => array(1 => 'router', 2 => 'server'))));
