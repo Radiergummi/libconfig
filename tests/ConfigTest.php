@@ -49,7 +49,7 @@ class ConfigTest extends PHPUnit_Framework_TestCase
   public function testGetWholeConfig()
   {
     $array = array('a' => 'foo', 'b' => 'bar', 'c' => 'baz');
-    $obj = new Radiergummi\Libconfig\Config($json);
+    $obj = new Radiergummi\Libconfig\Config($array);
     
     $this->assertEquals($array, $obj->get());
   }
