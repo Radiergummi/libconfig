@@ -25,7 +25,7 @@ class ConfigInterfaceTest extends PHPUnit_Framework_TestCase
   
   
   
-  public function testIteratorSucceeds()
+  public function testIteratorInterface()
   {
     $json = '{ "a": "value", "b": ["foo", "bar", "baz"], "c": { "key1": "value1", "key2": ["a", "b", "c"], "key3": { "suba": "valuea", "subb": "valueb", "subc": "valuec" } } }';
     $obj = new Radiergummi\libconfig\Config($json);
@@ -47,6 +47,20 @@ class ConfigInterfaceTest extends PHPUnit_Framework_TestCase
             )
         )
     );
+
     $this->assertEquals($expectedArr, $actualArr);
+  }
+  
+  
+  
+
+  public function testArrayAccessInterface()
+  {
+    $array = array('a' => 'foo', 'b' => 'bar', 'c' => 'baz', 'd' => array(1, 2, 3));
+    $obj = new Radiergummi\libconfig\Config($array);
+
+    $this->assertEquals('foo', $obj['a']);   
+
+    $this->assertEquals(array(1, 2, 3), $obj['d']);
   }
 }
