@@ -54,7 +54,7 @@ class ConfigInterfaceTest extends PHPUnit_Framework_TestCase
   
   
 
-  public function testArrayAccessInterface()
+  public function testArrayAccessInterfaceGetValue()
   {
     $array = array('a' => 'foo', 'b' => 'bar', 'c' => 'baz', 'd' => array(1, 2, 3));
     $obj = new Radiergummi\libconfig\Config($array);
@@ -62,5 +62,49 @@ class ConfigInterfaceTest extends PHPUnit_Framework_TestCase
     $this->assertEquals('foo', $obj['a']);   
 
     $this->assertEquals(array(1, 2, 3), $obj['d']);
+  }
+
+  public function testArrayAccessInterfaceGetNestedValue()
+  {
+    $array = array(192 => array(168 => array(0 => array(1 => 'router', 2 => 'server'))));
+    $obj = new Radiergummi\libconfig\Config($array);
+
+    $this->assertEquals('router', $obj[192][168][0][1]);
+  }
+
+  public function testArrayAccessInterfaceAlterValue()
+  {
+    $array = array('a' => 'foo', 'b' => 'bar', 'c' => 'baz', 'd' => array(1, 2, 3));
+    $obj = new Radiergummi\libconfig\Config($array);
+
+    $obj['b'] = 'notbar';
+    $this->assertEquals('notbar', $obj['b']);
+  }
+
+  public function testArrayAccessInterfaceAlterNestedValue()
+  {
+    $array = array(192 => array(168 => array(0 => array(1 => 'router', 2 => 'server'))));
+    $obj = new Radiergummi\libconfig\Config($array);
+
+    $obj[192][168][0][2] = 'bridge';
+    $this->assertEquals('bridge', $obj[192][168][0][2]);
+  }
+
+  public function testArrayAccessInterfaceSetNewValue()
+  {
+    $array = array('a' => 'foo', 'b' => 'bar', 'c' => 'baz', 'd' => array(1, 2, 3));
+    $obj = new Radiergummi\libconfig\Config($array);
+
+    $obj['test'] = 'newValue';
+    $this->assertEquals('newValue', $obj['test']);
+  }
+
+  public function testArrayAccessInterfaceSetNewNestedValue()
+  {
+    $array = array(192 => array(168 => array(0 => array(1 => 'router', 2 => 'server'))));
+    $obj = new Radiergummi\libconfig\Config($array);
+
+    $obj[192][168][0][10] = 'domaincontroller';
+    $this->assertEquals('domaincontroller', $obj[192][168][0][10]);
   }
 }
