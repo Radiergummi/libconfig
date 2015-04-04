@@ -85,11 +85,14 @@ class ConfigInterfaceTest extends PHPUnit_Framework_TestCase
   {
     $array = array(192 => array(168 => array(0 => array(1 => 'router', 2 => 'server'))));
     $obj = new Radiergummi\libconfig\Config($array);
-
+    
+    echo PHP_EOL . PHP_EOL . 'start of alterNestedValue' . PHP_EOL;
     $obj[192][168][0][2] = 'bridge';
+    echo PHP_EOL . PHP_EOL . 'end of alterNestedValue' . PHP_EOL;
+    
     $this->assertEquals('bridge', $obj[192][168][0][2]);
   }
-
+/*
   public function testArrayAccessInterfaceSetNewValue()
   {
     $array = array('a' => 'foo', 'b' => 'bar', 'c' => 'baz', 'd' => array(1, 2, 3));
@@ -106,5 +109,5 @@ class ConfigInterfaceTest extends PHPUnit_Framework_TestCase
 
     $obj[192][168][0][10] = 'domaincontroller';
     $this->assertEquals('domaincontroller', $obj[192][168][0][10]);
-  }
+  }*/
 }
