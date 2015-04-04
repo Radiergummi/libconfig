@@ -202,6 +202,7 @@ class Config implements \ArrayAccess, \Iterator, \Countable
 		if (is_null($offset)) {
 			$this->data[] = $value;
 		} else {
+			echo $offset;
 			$this->data[$offset] = $value;
 		}
 	}
