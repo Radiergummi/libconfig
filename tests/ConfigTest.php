@@ -103,7 +103,7 @@ class ConfigTest extends PHPUnit_Framework_TestCase
     $obj = new Radiergummi\Libconfig\Config($first);
     
     $obj->add($second);
-    
+    var_dump($obj->get());
     $this->assertEquals('notbar', $obj->get('b'));
   }
 
