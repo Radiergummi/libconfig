@@ -182,14 +182,14 @@ class Config implements \ArrayAccess, \Iterator, \Countable
 
 
 	/**
-	 * returns the complete config array as serialized JSON.
+	 * returns the complete config array as serialized data.
 	 * Mainly for debug purposes, but what do I know? I'm just a comment.
 	 * 
-	 * @return array $data the complete config array as serialized JSON
+	 * @return array $data the complete config array as serialized data
 	 */
 	 public function __tostring()
 	 {
-	 	return json_serialize($this->data);
+	 	return serialize($this->data);
 	 }
 
 	
