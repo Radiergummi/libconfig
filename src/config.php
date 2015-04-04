@@ -112,8 +112,7 @@ class Config implements \ArrayAccess, \Iterator, \Countable
 		$keys = explode('.', $key);
 		$values = $this->data;
 		if (count($keys) == 1) {
-			$value = $values[$keys[0]];
-			return (!empty($value) ? $value : $fallback);
+			return (array_key_exists($keys[0], $values) ? $values[$keys[0]] : $fallback);
 		} else {
 			// search the array using the dot character to access nested array values
 			foreach($keys as $key) {
