@@ -199,6 +199,8 @@ class Config implements \ArrayAccess, \Iterator, \Countable
 	 */
 	public function offsetSet($offset, $value)
 	{
+		if (is_array($data)) $data = new self($data);
+
 		if (is_null($offset)) {
 			$this->data[] = $value;
 		} else {
