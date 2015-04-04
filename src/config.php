@@ -94,7 +94,7 @@ class Config implements \ArrayAccess, \Iterator, \Countable
 			}
 		}
 		// merge the arrays 
-		$this->data = array_replace_recursive($input, $this->data);
+		$this->data = array_replace_recursive($this->data, $input);
 	}
 
 	/**
