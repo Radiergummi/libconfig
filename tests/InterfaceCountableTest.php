@@ -4,7 +4,7 @@
  * Config Test
  *
  */
-class ConfigTest extends PHPUnit_Framework_TestCase
+class ConfigCountableTest extends PHPUnit_Framework_TestCase
 {
   public function testCountableInterfaceSucceeds()
   {
