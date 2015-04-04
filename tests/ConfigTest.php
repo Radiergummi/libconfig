@@ -98,7 +98,7 @@ class ConfigTest extends PHPUnit_Framework_TestCase
   public function testAddNewArray()
   {
     $first = '{"a": "foo", "b": "bar", "c": "baz"}';
-    $second = array('b' => 'notbar', 'jack' => 'hughes');
+    $second = array('a' => 'foo', 'b' => 'notbar', 'jack' => 'hughes');
 
     $obj = new Radiergummi\Libconfig\Config($first);
     
