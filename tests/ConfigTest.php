@@ -113,7 +113,7 @@ class ConfigTest extends PHPUnit_Framework_TestCase
 
     $obj = new Radiergummi\Libconfig\Config($array);
     
-    $this->assertEquals($array, json_decode($obj));
+    $this->assertEquals($array, unserialize($obj));
   }
   
   
