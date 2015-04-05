@@ -217,7 +217,7 @@ class Config implements \ArrayAccess, \Iterator, \Countable
 		unset($this->data[$offset]);
 	}
 
-	public function offsetGet($offset)
+	public function &offsetGet($offset)
 	{
 		return isset($this->data[$offset]) ? $this->data[$offset] : null;
 	}
