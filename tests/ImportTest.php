@@ -24,15 +24,12 @@ class ImportTest extends PHPUnit_Framework_TestCase
     $this->assertEquals('test', $obj->get('a'));
   }
 
-  /**
-   * @expectedException \Exception
-   */
   public function testCreateObjectWithMalformedJSONFileAsParameter()
   {
     $file = $this->fixturePath . 'json/broken.json';
     $obj = new Radiergummi\Libconfig\Config($file);
     
-    $this->assertInstanceOf('Radiergummi\Libconfig\Config', $obj);
+    $this->setExpectedException('\Exception);
   }
 
   public function testCreateObjectWithPHPFileAsParameter()
@@ -45,16 +42,11 @@ class ImportTest extends PHPUnit_Framework_TestCase
     $this->assertEquals('test', $obj->get('a'));
   }
 
-  /**
-   * @expectedException \Exception
-   */
   public function testCreateObjectWithMalformedPHPFileAsParameter()
   {
     $file = $this->fixturePath . 'php/broken.php';
     $obj = new Radiergummi\Libconfig\Config($file);
     
-    $this->assertInstanceOf('Radiergummi\Libconfig\Config', $obj);
+    $this->setExpectedException('\Exception);
   }
-
-
 }
