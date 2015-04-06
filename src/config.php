@@ -54,7 +54,7 @@ class Config implements \ArrayAccess, \Iterator, \Countable
 	{
 		$data = json_decode($input, true);
 		if ($error = json_last_error() != 0) {
-			throw new Exception('Error while parsing JSON: ' . $error);
+			throw new \Exception('Error while parsing JSON: ' . $error);
 		}
 
 		return $data;
@@ -72,7 +72,7 @@ class Config implements \ArrayAccess, \Iterator, \Countable
 		// determine if array or path given
 		if (is_string($input)) {
 			if (is_dir($input)) {
-				if (! is_readable($input)) throw new Exception('Directory is not readable.');
+				if (! is_readable($input)) throw new \Exception('Directory is not readable.');
 				
 				// add each file in a directory to the config
 				foreach (array_diff(scandir($input), array('..', '.')) as $file) {
@@ -82,7 +82,7 @@ class Config implements \ArrayAccess, \Iterator, \Countable
 				// break out
 				return;
 			} else if (is_file($input)) {
-				if (! is_readable($input)) throw new Exception('File is not readable.');
+				if (! is_readable($input)) throw new \Exception('File is not readable.');
 				
 				$this->add($this->parse(file_get_contents($input)));
 				
