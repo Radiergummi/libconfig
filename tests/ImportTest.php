@@ -20,6 +20,8 @@ class ImportTest extends PHPUnit_Framework_TestCase
     $obj = new Radiergummi\Libconfig\Config($file);
     
     $this->assertInstanceOf('Radiergummi\Libconfig\Config', $obj);
+
+    $this->assertEquals('test', $obj->get('a'));
   }
 
   /**
@@ -33,27 +35,13 @@ class ImportTest extends PHPUnit_Framework_TestCase
     $this->assertInstanceOf('Radiergummi\Libconfig\Config', $obj);
   }
 
-  public function testGetDataFromImportedJSONFile()
-  {
-    $file = $this->fixturePath . 'json/datatypes.json';
-    $obj = new Radiergummi\Libconfig\Config($file);
-    
-    $this->assertEquals('test', $obj->get('a'));
-  }
-
   public function testCreateObjectWithPHPFileAsParameter()
   {
     $file = $this->fixturePath . 'php/datatypes.php';
     $obj = new Radiergummi\Libconfig\Config($file);
     
     $this->assertInstanceOf('Radiergummi\Libconfig\Config', $obj);
-  }
 
-  public function testGetDataFromImportedPHPFile()
-  {
-    $file = $this->fixturePath . 'php/datatypes.php';
-    $obj = new Radiergummi\Libconfig\Config($file);
-    
     $this->assertEquals('test', $obj->get('a'));
   }
 
