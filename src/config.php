@@ -199,7 +199,6 @@ class Config implements \ArrayAccess, \Iterator, \Countable
 	 */
 	public function offsetSet($offset, $value)
 	{
-		var_dump($offset);
 		if (is_null($offset)) {
 			$this->data[] = $value;
 		} else {
@@ -217,7 +216,7 @@ class Config implements \ArrayAccess, \Iterator, \Countable
 		unset($this->data[$offset]);
 	}
 
-	public function &offsetGet($offset)
+	public function offsetGet($offset)
 	{
 		return isset($this->data[$offset]) ? $this->data[$offset] : null;
 	}
