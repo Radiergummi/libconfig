@@ -92,10 +92,12 @@ class Config implements \ArrayAccess, \Iterator, \Countable
 			} else {
 				// attempt to parse input
 				$this->add($this->parse($input));
+				return;
 			}
 		}
-		// merge the arrays 
-		$this->data = array_replace_recursive($this->data, $input);
+
+		if (is_array($input)) $this->data = array_replace_recursive($this->data, $input);
+		return;
 	}
 
 	/**
