@@ -85,7 +85,7 @@ class Config implements \ArrayAccess, \Iterator, \Countable
 			} else if (is_file($input)) {
 				if (! is_readable($input)) throw new \Exception('File is not readable.');
 				
-				$this->add($this->parse(file_get_contents($input)));
+				$this->add(require($input));
 				
 				// break out
 				return;
