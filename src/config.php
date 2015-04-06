@@ -98,7 +98,7 @@ class Config implements \ArrayAccess, \Iterator, \Countable
 				return;
 			} else {
 				// attempt to parse input
-				$this->parse($input);
+				$this->add($this->parse($input));
 				return;
 			}
 		}
