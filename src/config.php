@@ -40,7 +40,8 @@ class Config implements \ArrayAccess, \Iterator, \Countable
 	{
 
 		// if we've got an array, use it, else, we assume this is json.
-		$this->data = (is_array($data) ? $data : $this->parse($data));
+	#	$this->data = (is_array($data) ? $data : $this->parse($data));
+		$this->add($data);
 	}
   
   
