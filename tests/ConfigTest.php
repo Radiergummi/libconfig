@@ -6,14 +6,6 @@
  */
 class ConfigTest extends PHPUnit_Framework_TestCase
 {
-  private $fixturePath = '';
-
-  function setUp()
-  {
-    parent::setUp();
-    $this->fixturePath = dirname(__FILE__) . '/fixtures/';
-  }
-
   public function testCreateObjectWithArrayAsParameter()
   {
     $array = array('a', 'b', 'c');
