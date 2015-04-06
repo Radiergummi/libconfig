@@ -84,9 +84,17 @@ class Config implements \ArrayAccess, \Iterator, \Countable
 				return;
 			} else if (is_file($input)) {
 				if (! is_readable($input)) throw new \Exception('File is not readable.');
-				
-				$this->add(require($input));
-				
+
+				switch(pathinfo($input, PATHINFO_EXTENSION)) {
+					case 'php':
+						$content = require($input);
+						break;
+					
+					case 'json':
+						$content = file_get_contents($input);
+						break;
+				}
+		
 				// break out
 				return;
 			} else {
