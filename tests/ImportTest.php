@@ -17,7 +17,7 @@ class ImportTest extends PHPUnit_Framework_TestCase
   public function testCreateObjectWithJSONFileAsParameter()
   {
     $file = $this->fixturePath . 'json/datatypes.json';
-    $obj = new Radiergummi\Libconfig\Config($file);
+    $obj = new Radiergummi\Libconfig\Config(require($file));
     
     $this->assertInstanceOf('Radiergummi\Libconfig\Config', $obj);
 
@@ -27,15 +27,15 @@ class ImportTest extends PHPUnit_Framework_TestCase
   public function testCreateObjectWithMalformedJSONFileAsParameter()
   {
     $file = $this->fixturePath . 'json/broken.json';
-    $obj = new Radiergummi\Libconfig\Config($file);
+    $obj = new Radiergummi\Libconfig\Config(require($file));
     
-    $this->setExpectedException('\Exception);
+    $this->setExpectedException('\Exception');
   }
 
   public function testCreateObjectWithPHPFileAsParameter()
   {
     $file = $this->fixturePath . 'php/datatypes.php';
-    $obj = new Radiergummi\Libconfig\Config($file);
+    $obj = new Radiergummi\Libconfig\Config(require($file));
     
     $this->assertInstanceOf('Radiergummi\Libconfig\Config', $obj);
 
@@ -45,7 +45,7 @@ class ImportTest extends PHPUnit_Framework_TestCase
   public function testCreateObjectWithMalformedPHPFileAsParameter()
   {
     $file = $this->fixturePath . 'php/broken.php';
-    $obj = new Radiergummi\Libconfig\Config($file);
+    $obj = new Radiergummi\Libconfig\Config(require($file));
     
     $this->setExpectedException('\Exception);
   }
