@@ -74,13 +74,12 @@ class Config implements \ArrayAccess, \Iterator, \Countable
 		if (is_string($input)) {
 			if (is_dir($input)) {
 				if (! is_readable($input)) throw new \Exception('Directory is not readable.');
-				
+
 				// add each file in a directory to the config
 				foreach (array_diff(scandir($input), array('..', '.')) as $file) {
 					$this->add($file);
 				}
-				
-				// break out
+
 				return;
 			} else if (is_file($input)) {
 				if (! is_readable($input)) throw new \Exception('File is not readable.');
@@ -89,17 +88,17 @@ class Config implements \ArrayAccess, \Iterator, \Countable
 					case 'php':
 						$content = require($input);
 						break;
-					
+
 					case 'json':
 						$content = file_get_contents($input);
 						break;
 				}
-		
-				// break out
+
+		    $this->add($content);
 				return;
 			} else {
 				// attempt to parse input
-				$this->add($this->parse($input));
+				$this->parse($input);
 				return;
 			}
 		}
