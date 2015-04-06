@@ -21,7 +21,7 @@ class ImportTest extends PHPUnit_Framework_TestCase
     
     $this->assertInstanceOf('Radiergummi\Libconfig\Config', $obj);
 
-    echo PHP_EOL . PHP_EOL . $obj->get() . PHP_EOL . PHP_EOL;
+    echo PHP_EOL . PHP_EOL; print_r($obj->get()); echo PHP_EOL . PHP_EOL;
     $this->assertEquals('test', $obj->get('a'));
   }
 /*
