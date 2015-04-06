@@ -1,6 +1,6 @@
 {
     "a": "test",
-    "b": [foo, bar, baz],
+    "b": ["foo", "bar", "baz"],
     "c": {
       "a": "b",
       "d": "e",
