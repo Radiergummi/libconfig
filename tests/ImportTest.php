@@ -23,7 +23,7 @@ class ImportTest extends PHPUnit_Framework_TestCase
   }
 
   /**
-   * @expectedException Exception
+   * @expectedException \Exception
    */
   public function testCreateObjectWithMalformedJSONFileAsParameter()
   {
@@ -58,7 +58,7 @@ class ImportTest extends PHPUnit_Framework_TestCase
   }
 
   /**
-   * @expectedException Exception
+   * @expectedException \Exception
    */
   public function testCreateObjectWithMalformedPHPFileAsParameter()
   {
