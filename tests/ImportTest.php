@@ -34,6 +34,24 @@ class ImportTest extends PHPUnit_Framework_TestCase
     $obj = new Radiergummi\Libconfig\Config($file);
   }
 
+  public function testCreateObjectWithEmptyJSONFileAsParameter()
+  {
+    $file = $this->fixturePath . 'json/empty.json';
+
+    $this->setExpectedException('\RuntimeException');
+
+    $obj = new Radiergummi\Libconfig\Config($file);
+  }
+
+  public function testCreateObjectWithNonexistentJSONFileAsParameter()
+  {
+    $file = $this->fixturePath . 'json/nonexistent.json';
+
+    $this->setExpectedException('\RuntimeException');
+
+    $obj = new Radiergummi\Libconfig\Config($file);
+  }
+
   public function testCreateObjectWithPHPFileAsParameter()
   {
     $file = $this->fixturePath . 'php/datatypes.php';
@@ -53,4 +71,21 @@ class ImportTest extends PHPUnit_Framework_TestCase
       $obj = new Radiergummi\Libconfig\Config($file);
   }
 
+  public function testCreateObjectWithEmptyPHPFileAsParameter()
+  {
+      $file = $this->fixturePath . 'php/empty.php';
+
+      $this->setExpectedException('\RuntimeException');
+
+      $obj = new Radiergummi\Libconfig\Config($file);
+  }
+  
+  public function testCreateObjectWithNonexistentPHPFileAsParameter()
+  {
+      $file = $this->fixturePath . 'php/nonexistent.php';
+
+      $this->setExpectedException('\RuntimeException');
+
+      $obj = new Radiergummi\Libconfig\Config($file);
+  }
 }
