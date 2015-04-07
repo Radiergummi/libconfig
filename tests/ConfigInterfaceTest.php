@@ -81,7 +81,7 @@ class ConfigInterfaceTest extends PHPUnit_Framework_TestCase
     $this->assertEquals('notbar', $obj['b']);
   }
 
-/***** Currently disabled: The OffsetGet-Method seems unable to handle nested values.
+/***** Currently disabled: The OffsetGet-Method seems unable to handle nested values.*/
   public function testArrayAccessInterfaceAlterNestedValue()
   {
     $array = array(192 => array(168 => array(0 => array(1 => 'router', 2 => 'server'))));
@@ -93,7 +93,7 @@ class ConfigInterfaceTest extends PHPUnit_Framework_TestCase
     
     $this->assertEquals('bridge', $obj[192][168][0][2]);
   }
-*/
+/**/
   public function testArrayAccessInterfaceSetNewValue()
   {
     $array = array('a' => 'foo', 'b' => 'bar', 'c' => 'baz', 'd' => array(1, 2, 3));
@@ -103,7 +103,7 @@ class ConfigInterfaceTest extends PHPUnit_Framework_TestCase
     $this->assertEquals('newValue', $obj['test']);
   }
 
-/***** Currently disabled: The OffsetGet-Method seems unable to handle nested values.
+/***** Currently disabled: The OffsetGet-Method seems unable to handle nested values.*/
   public function testArrayAccessInterfaceSetNewNestedValue()
   {
     $array = array(192 => array(168 => array(0 => array(1 => 'router', 2 => 'server'))));
@@ -112,5 +112,5 @@ class ConfigInterfaceTest extends PHPUnit_Framework_TestCase
     $obj[192][168][0][10] = 'domaincontroller';
     $this->assertEquals('domaincontroller', $obj[192][168][0][10]);
   }
-*/
+/**/
 }
