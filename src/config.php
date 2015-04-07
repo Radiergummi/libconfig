@@ -12,7 +12,7 @@ use Countable;
  * @package php-config
  * @author Moritz Friedrich <m@9dev.de>
  */
-class Config extends \ArrayObject implements \Iterator, \Countable
+class Config extends \ArrayObject
 {
   /**
    * holds the configuration data
