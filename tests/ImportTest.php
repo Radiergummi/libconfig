@@ -43,9 +43,6 @@ class ImportTest extends PHPUnit_Framework_TestCase
     $this->assertEquals('test', $obj->get('a'));
   }
 
-  /**
-   * @expectedException \RuntimeException
-   */
   public function testCreateObjectWithMalformedPHPFileAsParameter()
   {
     try {
