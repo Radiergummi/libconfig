@@ -51,7 +51,7 @@ class ImportTest extends PHPUnit_Framework_TestCase
     try {
       $file = $this->fixturePath . 'php/broken.php';
       $obj = new Radiergummi\Libconfig\Config($file);
-    } catch catch (Exception $e) {
+    } catch (Exception $e) {
       echo $e;
       echo $this->getExpectedException();
     }
