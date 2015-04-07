@@ -90,49 +90,59 @@ class Config implements \ArrayAccess, \Iterator, \Countable
    */
   public function add($input)
   {
-    // determine if array or path given
+    // if we got a string, it can be either JSON, a filename or a folder path.
     if (is_string($input)) {
+      
+      // if we got a directory, add each file separately again (except . and ..).
       if (is_dir($input)) {
-        if (! is_readable($input)) throw new \RuntimeException('Directory is not readable.');
+        if (! is_readable($input)) throw new \RuntimeException('Directory "' . $input . '" is not readable.');
 
-        // add each file in a directory to the config
         foreach (array_diff(scandir($input), array('..', '.')) as $file) {
           $this->add(rtrim($input, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $file);
         }
 
         return;
-      } else if (is_file($input)) {
-        if (! is_readable($input)) throw new \RuntimeException('File is not readable.');
+      }
+      
+      // if we got a filename, decide how to handle it based on the extension, then add its parsed content again
+      if (is_file($input)) {
+        if (! is_readable($input)) throw new \RuntimeException('File "' . $input . '" is not readable.');
 
           switch(pathinfo($input, PATHINFO_EXTENSION)) {
             case 'php':
               $content = require($input);
               break;
-  
+
             case 'json':
               $content = $this->parseJSON(file_get_contents($input));
               break;
-              
+
             // example INI implementation
             #case 'ini':
             #  $content = $this->parseINI(file_get_contents($input));
             #  break;
           }
-        
+
         $this->add($content);
 
         return;
-      } else {
-
-        // string input is generally treated as JSON
-        $this->add($this->parseJSON($input));
-
-        return;
       }
+
+      // string input is generally treated as JSON
+      $this->add($this->parseJSON($input));
+
+      return;
     }
 
-    if (is_array($input)) $this->data = array_replace_recursive($this->data, $input);
+    // if we got an array, it has either been injected as one or parsed already. Either way it will be merged now.
+    if (is_array($input)) {
+      $this->data = array_replace_recursive($this->data, $input);
 
+      return;
+    }
+
+    // if we have no match, throw an exception (this happens if neither a string nor an array was given).
+    throw new \RuntimeException('Provided data could not be parsed ("' . substr($input, 0, 20) . '...").');
     return;
   }
 
