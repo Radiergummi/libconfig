@@ -48,9 +48,13 @@ class ImportTest extends PHPUnit_Framework_TestCase
    */
   public function testCreateObjectWithMalformedPHPFileAsParameter()
   {
-    $file = $this->fixturePath . 'php/broken.php';
-    $obj = new Radiergummi\Libconfig\Config($file);
-    echo $this->getExpectedException();
+    try {
+      $file = $this->fixturePath . 'php/broken.php';
+      $obj = new Radiergummi\Libconfig\Config($file);
+    } catch catch (Exception $e) {
+      echo $e;
+      echo $this->getExpectedException();
+    }
    # $this->setExpectedException('RuntimeException');
   }
 
