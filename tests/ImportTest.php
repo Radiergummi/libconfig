@@ -64,28 +64,38 @@ class ImportTest extends PHPUnit_Framework_TestCase
 
   public function testCreateObjectWithMalformedPHPFileAsParameter()
   {
-      $file = $this->fixturePath . 'php/broken.php';
+    $file = $this->fixturePath . 'php/broken.php';
 
-      $this->setExpectedException('\RuntimeException');
+    $this->setExpectedException('\RuntimeException');
 
-      $obj = new Radiergummi\Libconfig\Config($file);
+    $obj = new Radiergummi\Libconfig\Config($file);
   }
 
   public function testCreateObjectWithEmptyPHPFileAsParameter()
   {
-      $file = $this->fixturePath . 'php/empty.php';
+    $file = $this->fixturePath . 'php/empty.php';
 
-      $this->setExpectedException('\RuntimeException');
+    $this->setExpectedException('\RuntimeException');
 
-      $obj = new Radiergummi\Libconfig\Config($file);
+    $obj = new Radiergummi\Libconfig\Config($file);
   }
   
   public function testCreateObjectWithNonexistentPHPFileAsParameter()
   {
-      $file = $this->fixturePath . 'php/nonexistent.php';
+    $file = $this->fixturePath . 'php/nonexistent.php';
 
-      $this->setExpectedException('\RuntimeException');
+    $this->setExpectedException('\RuntimeException');
 
-      $obj = new Radiergummi\Libconfig\Config($file);
+    $obj = new Radiergummi\Libconfig\Config($file);
+  }
+
+  public function testCreateObjectWithFolderAsParameter()
+  {
+    $file = $this->fixturePath . 'json/subfolder/';
+    $obj = new Radiergummi\Libconfig\Config($file);
+
+    $this->assertInstanceOf('Radiergummi\Libconfig\Config', $obj);
+
+    $this->assertEquals('example glossary', $obj->get('glossary.title'));
   }
 }
