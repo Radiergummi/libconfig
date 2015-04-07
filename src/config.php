@@ -327,9 +327,8 @@ class Config extends \ArrayObject
   * Iterator Interface
   *
   */
-
-public function getIterator() {
-		return new ArrayIterator($this->data);
+	public function getIterator() {
+		return new \ArrayIterator($this->data);
 	}
 
   /**
