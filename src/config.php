@@ -220,9 +220,10 @@ class Config implements \ArrayAccess, \Iterator, \Countable
 
   /**
    * erase function.
+   * erases a key from the config
    * 
    * @access public
-   * @param mixed $key
+   * @param string $key  the key to remove
    * @return void
    */
   public function erase($key)
@@ -243,7 +244,7 @@ class Config implements \ArrayAccess, \Iterator, \Countable
   * returns the complete config array as serialized data.
   * 
   * @access public
-  * @return array $data the complete config array as serialized data
+  * @return array  $data the complete config array as serialized data
   */
   public function __tostring()
   {
