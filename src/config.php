@@ -328,72 +328,9 @@ class Config extends \ArrayObject
   *
   */
 
-  /**
-   * rewind function.
-   * 
-   * @access public
-   * @return void
-   */
-  public function rewind()
-  {
-    $this->iteratorCount = 0;
-  }
-
-
-  /**
-   * current function.
-   * 
-   * @access public
-   * @return mixed
-   */
-  public function current()
-  {
-    $values = array_values($this->data);
-
-    return $values[$this->iteratorCount];
-  }
-
-
-  /**
-   * key function.
-   * 
-   * @access public
-   * @return mixed
-   */
-  public function key()
-  {
-    $keys = array_keys($this->data);
-
-    return $keys[$this->iteratorCount];
-  }
-
-
-  /**
-   * next function.
-   * 
-   * @access public
-   * @return void
-   */
-  public function next()
-  {
-    $this->iteratorCount++;
-  }
-
-
-  /**
-   * valid function.
-   * 
-   * @access public
-   * @return bool
-   */
-  public function valid()
-  {
-    $values = array_values($this->data);
-
-    return (isset($values[$this->iteratorCount]));
-  }
-
-
+public function getIterator() {
+		return new ArrayIterator($this->data);
+	}
 
   /**
   * Count Interface
