@@ -260,69 +260,7 @@ class Config extends \ArrayObject
   {
     return serialize($this->data);
   }
-  
-  /**
-   * ArrayAccess Interface
-   * 
-   */
-
-  /**
-   * offsetSet function.
-   * 
-   * @access public
-   * @param mixed $offset
-   * @param mixed $value
-   * @return void
-   */
-  public function offsetSet($offset, $value)
-  {
-    if (is_null($offset)) {
-      $this->data[] = $value;
-    } else {
-      $this->set($offset, $value);
-    }
-  }
-
-
-  /**
-   * offsetExists function.
-   * 
-   * @access public
-   * @param mixed $offset
-   * @return void
-   */
-  public function offsetExists($offset)
-  {
-    return isset($this->data[$offset]);
-  }
-
-
-  /**
-   * offsetUnset function.
-   * 
-   * @access public
-   * @param mixed $offset
-   * @return void
-   */
-  public function offsetUnset($offset)
-  {
-    unset($this->data[$offset]);
-  }
-
-
-  /**
-   * offsetGet function.
-   * 
-   * @access public
-   * @param mixed $offset
-   * @return bool
-   */
-  public function offsetGet($offset)
-  {
-    return isset($this->data[$offset]) ? $this->data[$offset] : null;
-  }
-  
-  
+ 
   /**
   * Iterator Interface
   *
