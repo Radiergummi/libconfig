@@ -26,17 +26,6 @@ class Config extends \ArrayObject
 
 
   /**
-   * Iterator Access Counter
-   * 
-   * (default value: 0)
-   * 
-   * @var int
-   * @access private
-   */
-  private $iteratorCount = 0;
-
-
-  /**
    * __construct function.
    * Populates the data array with the values injected at runtime
    * 
