@@ -2,10 +2,6 @@
 // Advice: change namespace to "<your app>\lib" 
 namespace Radiergummi\libconfig;
 
-use ArrayAccess;
-use Iterator;
-use Countable;
-
 /**
  * General purpose config class
  * 
@@ -257,20 +253,4 @@ class Config extends \ArrayObject
 	public function getIterator() {
 		return new \ArrayIterator($this->data);
 	}
-
-  /**
-  * Count Interface
-  *
-  */
-
-  /**
-   * count function.
-   * 
-   * @access public
-   * @return int
-   */
-  public function count()
-  {
-    return count($this->data);
-  }
 }
