@@ -32,6 +32,7 @@ class Config extends \ArrayObject
   public function __construct($data)
   {
     $this->add($data);
+    parent::__construct($this->data);
   }
   
 
