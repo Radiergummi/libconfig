@@ -250,7 +250,23 @@ class Config extends \ArrayObject
   * Iterator Interface
   *
   */
-	public function getIterator() {
-		return new \ArrayIterator($this->data);
-	}
+  public function getIterator() {
+    return new \ArrayIterator($this->data);
+  }
+
+  /**
+  * Count Interface
+  *
+  */
+ 
+  /**
+   * count function.
+   * 
+   * @access public
+   * @return int
+   */
+  public function count()
+  {
+    return count($this->data);
+  }
 }
