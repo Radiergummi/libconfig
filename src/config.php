@@ -10,6 +10,7 @@ namespace Radiergummi\libconfig;
  */
 class Config extends \ArrayObject
 {
+
   /**
    * holds the configuration data
    * 
@@ -41,7 +42,7 @@ class Config extends \ArrayObject
    * parses the input given as a json string
    * 
    * @access private
-   * @param mixed $input  a JSON string
+   * @param string $input  a JSON string
    * @return array $data  the parsed data
    */
   private function parseJSON($input)
@@ -56,7 +57,6 @@ class Config extends \ArrayObject
       'Malformed UTF-8 characters, possibly incorrectly encoded'
     );
 
-    // decode JSON and throw exception on error
     $data = json_decode($input, true);
     if (($error = json_last_error()) != 0) {
       throw new \RuntimeException('Error while parsing JSON: ' . $errorMessages[$error] . ' ("' . substr($input, 0, 20) . '...")');
@@ -83,6 +83,7 @@ class Config extends \ArrayObject
       if (is_dir($input)) {
         if (! is_readable($input)) throw new \RuntimeException('Directory "' . $input . '" is not readable.');
 
+				// add each file in a directory to the config
         foreach (array_diff(scandir($input), array('..', '.')) as $file) {
           $this->add(rtrim($input, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $file);
         }
