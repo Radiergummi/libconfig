@@ -85,11 +85,9 @@ class ConfigInterfaceTest extends PHPUnit_Framework_TestCase
   {
     $array = array(192 => array(168 => array(0 => array(1 => 'router', 2 => 'server'))));
     $obj = new Radiergummi\libconfig\Config($array);
-    
-    echo PHP_EOL . PHP_EOL . 'start of alterNestedValue' . PHP_EOL;
+
     $obj[192][168][0][2] = 'bridge';
-    echo PHP_EOL . PHP_EOL . 'end of alterNestedValue' . PHP_EOL;
-    
+
     $this->assertEquals('bridge', $obj[192][168][0][2]);
   }
 
