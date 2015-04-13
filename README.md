@@ -4,7 +4,7 @@ Basically, you can just throw your configuration at it, be it arrays, json, file
 Finally, whenever something goes so wrong you should know it, libconfig will simply throw a RuntimeException.  
 &nbsp;  
 
-> Note: I also made a singleton version of this which is available [here](/../../tree/static).  
+> Note: I also made a singleton version of this which is available [here](/../../tree/singleton).  
 > Why? Because using stuff like `Config::get('key')` from anywhere without an instance is pretty darn comfortable.
 
 
