@@ -97,10 +97,10 @@ class Config extends \ArrayObject
 
           switch(pathinfo($input, PATHINFO_EXTENSION)) {
             case 'php':
-              ob_flush();
               ob_start();
               require($input);
               $content = ob_get_contents();
+              print_r($content); die();
               break;
 
             case 'json':
