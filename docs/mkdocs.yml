@@ -8,7 +8,7 @@ site_author: null
 site_favicon: null
 copyright: null
 
-google_analytics: google_analytics: #['UA-36723568-3', 'mkdocs.org']
+#google_analytics: ['UA-36723568-3', 'mkdocs.org']
 
 pages:
 - ['index.md', 'Introduction']
