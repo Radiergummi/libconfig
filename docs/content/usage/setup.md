@@ -5,6 +5,8 @@ Create a config object like this:
   $config = new Config($data);
 ```
 where `$data` can be an array or a json string, a file or folder path.  
+&nbsp;  
+
 
 
 ## Creating a Config object with a file as a parameter
@@ -29,6 +31,7 @@ return array(
 );
 ```
 &nbsp;  
+
 
 ## Creating a Config object with a folder as a parameter
 
