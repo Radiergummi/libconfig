@@ -100,7 +100,7 @@ class Config extends \ArrayObject
               ob_start();
               require($input);
               $content = ob_get_contents();
-              print_r($content); die();
+              print_r('Content: '.$content); die();
               break;
 
             case 'json':
