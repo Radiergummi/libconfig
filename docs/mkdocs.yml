@@ -17,7 +17,7 @@ pages:
 - ['reference/methods.md', 'Reference', 'Methods']
 - ['about/license.md', 'About', 'License']
 
-theme: 'mkdocs'
+theme: '9dev'
 theme_dir: 'theme'
 docs_dir: 'content'
 site_dir: 'public'
