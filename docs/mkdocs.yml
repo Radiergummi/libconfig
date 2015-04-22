@@ -14,7 +14,10 @@ pages:
 - ['index.md', 'Introduction']
 - ['usage/setup.md', 'Usage', 'Setup libconfig']
 - ['usage/advanced.md', 'Usage', 'Advanced usage']
+- ['usage/exceptions.md', 'Usage', 'Exception handling']
 - ['reference/methods.md', 'Reference', 'Methods']
+- ['reference/magic_methods.md', 'Reference', 'Magic Methods']
+- ['reference/interfaces.md', 'Reference', 'Interfaces']
 - ['about/license.md', 'About', 'License']
 
 # theme: 'mkdocs'
