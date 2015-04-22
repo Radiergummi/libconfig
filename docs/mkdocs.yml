@@ -11,7 +11,7 @@ copyright: null
 #google_analytics: ['UA-36723568-3', 'mkdocs.org']
 
 pages:
-- ['start/intro.md', 'Start', 'Introduction']
+- ['index.md', 'Introduction']
 - ['usage/setup.md', 'Usage', 'Setup libconfig']
 - ['usage/advanced.md', 'Usage', 'Advanced usage']
 - ['reference/methods.md', 'Reference', 'Methods']
