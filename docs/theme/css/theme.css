@@ -2813,15 +2813,17 @@ div[class^='highlight'] pre {
     width: 45px;
     background-color: #2980B9;
     padding: 5px;
-    border-radius: 100%}
+    border-radius: 100%
+}
+
 .wy-side-nav-search>a, .wy-side-nav-search .wy-dropdown>a {
     color: #fcfcfc;
     font-size: 100%;
     font-weight: bold;
     display: inline-block;
     padding: 4px 6px;
-    margin-bottom: 0.809em;
 }
+
 .wy-side-nav-search>a:hover, .wy-side-nav-search .wy-dropdown>a:hover {
     background: rgba(255, 255, 255, 0.1);
 }
