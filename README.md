@@ -1,6 +1,6 @@
-## libconfig [![Build Status](https://travis-ci.org/Radiergummi/libconfig.svg?branch=master)](https://travis-ci.org/Radiergummi/libconfig) [![Documentation](https://readthedocs.org/projects/libconfig/badge/?version=latest)](http://libconfig.docs.9dev.de)
+## libconfig [![Build Status](https://travis-ci.org/Radiergummi/libconfig.svg?branch=master)](https://travis-ci.org/Radiergummi/libconfig) [![Documentation](https://readthedocs.org/projects/libconfig/badge/?version=latest)](http://libconfig.docs.9dev.de)[![Join the chat at https://gitter.im/Radiergummi/libconfig](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Radiergummi/libconfig?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-[![Join the chat at https://gitter.im/Radiergummi/libconfig](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Radiergummi/libconfig?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Simple php class to create a key-value storage.
 Basically, you can just throw your configuration at it, be it arrays, json, files or even directories, and libconfig will make it accessible in an intuitive way. You can `get`, `set` and `add` it, count it, iterate over it or access it as an array. Each method has its tricks up its sleeve. More on that below.  
 Finally, whenever something goes so wrong you should know it, libconfig will simply throw a RuntimeException.  
