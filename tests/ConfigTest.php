@@ -22,6 +22,15 @@ class ConfigTest extends PHPUnit_Framework_TestCase
     $this->assertInstanceOf('Radiergummi\Libconfig\Config', $obj);
   }
 
+  public function testCreateObjectWithMalformedJSONAsParameter()
+  {
+    $json = '1j2384rv+qu38f9igQä0ä0ä0ä0ä0ä0ä0ä0ä0ä0ä0ä0ä0ä0ä0ä0ä0ä0ä0ä0ä0ä0ä03z8-hwciejbr,';
+    
+    $this->setExpectedException('\RuntimeException');
+    
+    $obj = new Radiergummi\Libconfig\Config($json);
+  }
+
   public function testGetValue() 
   {
     $array = array('a' => 'foo', 'b' => 'bar', 'c' => 'baz');
