@@ -3,7 +3,6 @@
 
 Simple php class to create a key-value storage.
 Basically, you can just throw your configuration at it, be it arrays, json, files or even directories, and libconfig will make it accessible in an intuitive way. You can `get`, `set` and `add` it, count it, iterate over it or access it as an array. Each method has its tricks up its sleeve. More on that below.  
-Finally, whenever something goes so wrong you should know it, libconfig will simply throw a RuntimeException.  
 &nbsp;  
 
 > Note: I also made a singleton version of this which is available [here](/../../tree/singleton).  
