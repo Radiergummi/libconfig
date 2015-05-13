@@ -8,7 +8,7 @@ namespace Radiergummi\libconfig;
  * @package libconfig
  * @author Radiergummi <m@9dev.de>
  */
-class Config extends \ArrayObject
+class Libconfig extends \ArrayObject
 {
 
   /**
