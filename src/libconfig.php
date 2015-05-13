@@ -5,8 +5,8 @@ namespace Radiergummi\libconfig;
 /**
  * General purpose config class
  * 
- * @package php-config
- * @author Moritz Friedrich <m@9dev.de>
+ * @package libconfig
+ * @author Radiergummi <m@9dev.de>
  */
 class Config extends \ArrayObject
 {
