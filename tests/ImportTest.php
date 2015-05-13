@@ -17,9 +17,9 @@ class ImportTest extends PHPUnit_Framework_TestCase
   public function testCreateObjectWithJSONFileAsParameter()
   {
     $file = $this->fixturePath . 'json/datatypes.json';
-    $obj = new Radiergummi\Libconfig\Config($file);
+    $obj = new Radiergummi\Libconfig\Libconfig($file);
     
-    $this->assertInstanceOf('Radiergummi\Libconfig\Config', $obj);
+    $this->assertInstanceOf('Radiergummi\Libconfig\Libconfig', $obj);
 
     echo PHP_EOL . PHP_EOL; print_r($obj->get()); echo PHP_EOL . PHP_EOL;
     $this->assertEquals('test', $obj->get('a'));
@@ -31,7 +31,7 @@ class ImportTest extends PHPUnit_Framework_TestCase
 
     $this->setExpectedException('\RuntimeException');
 
-    $obj = new Radiergummi\Libconfig\Config($file);
+    $obj = new Radiergummi\Libconfig\Libconfig($file);
   }
 
   public function testCreateObjectWithEmptyJSONFileAsParameter()
@@ -40,7 +40,7 @@ class ImportTest extends PHPUnit_Framework_TestCase
 
     $this->setExpectedException('\RuntimeException');
 
-    $obj = new Radiergummi\Libconfig\Config($file);
+    $obj = new Radiergummi\Libconfig\Libconfig($file);
   }
 
   public function testCreateObjectWithNonexistentJSONFileAsParameter()
@@ -49,15 +49,15 @@ class ImportTest extends PHPUnit_Framework_TestCase
 
     $this->setExpectedException('\RuntimeException');
 
-    $obj = new Radiergummi\Libconfig\Config($file);
+    $obj = new Radiergummi\Libconfig\Libconfig($file);
   }
 
   public function testCreateObjectWithPHPFileAsParameter()
   {
     $file = $this->fixturePath . 'php/datatypes.php';
-    $obj = new Radiergummi\Libconfig\Config($file);
+    $obj = new Radiergummi\Libconfig\Libconfig($file);
     
-    $this->assertInstanceOf('Radiergummi\Libconfig\Config', $obj);
+    $this->assertInstanceOf('Radiergummi\Libconfig\Libconfig', $obj);
 
     $this->assertEquals('test', $obj->get('a'));
   }
@@ -68,7 +68,7 @@ class ImportTest extends PHPUnit_Framework_TestCase
 
     $this->setExpectedException('\RuntimeException');
 
-    $obj = new Radiergummi\Libconfig\Config($file);
+    $obj = new Radiergummi\Libconfig\Libconfig($file);
   }
 
   public function testCreateObjectWithEmptyPHPFileAsParameter()
@@ -77,7 +77,7 @@ class ImportTest extends PHPUnit_Framework_TestCase
 
     $this->setExpectedException('\RuntimeException');
 
-    $obj = new Radiergummi\Libconfig\Config($file);
+    $obj = new Radiergummi\Libconfig\Libconfig($file);
   }
   
   public function testCreateObjectWithNonexistentPHPFileAsParameter()
@@ -86,15 +86,15 @@ class ImportTest extends PHPUnit_Framework_TestCase
 
     $this->setExpectedException('\RuntimeException');
 
-    $obj = new Radiergummi\Libconfig\Config($file);
+    $obj = new Radiergummi\Libconfig\Libconfig($file);
   }
 
   public function testCreateObjectWithFolderAsParameter()
   {
     $file = $this->fixturePath . 'json/subfolder/';
-    $obj = new Radiergummi\Libconfig\Config($file);
+    $obj = new Radiergummi\Libconfig\Libconfig($file);
 
-    $this->assertInstanceOf('Radiergummi\Libconfig\Config', $obj);
+    $this->assertInstanceOf('Radiergummi\Libconfig\Libconfig', $obj);
 
     $this->assertEquals('example glossary', $obj->get('glossary.title'));
   }
