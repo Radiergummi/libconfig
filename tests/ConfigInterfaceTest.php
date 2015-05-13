@@ -10,7 +10,7 @@ class ConfigInterfaceTest extends PHPUnit_Framework_TestCase
   public function testCountableInterface()
   {
     $array = array('a' => 'foo', 'b' => 'bar', 'c' => 'baz');
-    $obj = new Radiergummi\libconfig\Config($array);
+    $obj = new Radiergummi\Libconfig\Libconfig($array);
 
     $this->assertEquals(3, count($obj));
   }
@@ -18,7 +18,7 @@ class ConfigInterfaceTest extends PHPUnit_Framework_TestCase
   public function testCountableInterfaceWithNestedArray()
   {
     $array = array('a' => 'foo', 'b' => 'bar', 'c' => array('sub1' => 'value1', 'sub2' => 'value2', 'sub3' => 'value3'));
-    $obj = new Radiergummi\libconfig\Config($array);
+    $obj = new Radiergummi\Libconfig\Libconfig($array);
 
     $this->assertEquals(3, count($obj, true));
   }
@@ -28,7 +28,7 @@ class ConfigInterfaceTest extends PHPUnit_Framework_TestCase
   public function testIteratorInterface()
   {
     $json = '{ "a": "value", "b": ["foo", "bar", "baz"], "c": { "key1": "value1", "key2": ["a", "b", "c"], "key3": { "suba": "valuea", "subb": "valueb", "subc": "valuec" } } }';
-    $obj = new Radiergummi\libconfig\Config($json);
+    $obj = new Radiergummi\Libconfig\Libconfig($json);
 
     $actualArr = array();
     foreach($obj as $key => $val) {
@@ -57,7 +57,7 @@ class ConfigInterfaceTest extends PHPUnit_Framework_TestCase
   public function testArrayAccessInterfaceGetValue()
   {
     $array = array('a' => 'foo', 'b' => 'bar', 'c' => 'baz', 'd' => array(1, 2, 3));
-    $obj = new Radiergummi\libconfig\Config($array);
+    $obj = new Radiergummi\Libconfig\Libconfig($array);
 
     $this->assertEquals('foo', $obj['a']);   
 
@@ -67,7 +67,7 @@ class ConfigInterfaceTest extends PHPUnit_Framework_TestCase
   public function testArrayAccessInterfaceGetNestedValue()
   {
     $array = array(192 => array(168 => array(0 => array(1 => 'router', 2 => 'server'))));
-    $obj = new Radiergummi\libconfig\Config($array);
+    $obj = new Radiergummi\Libconfig\Libconfig($array);
 
     $this->assertEquals('router', $obj[192][168][0][1]);
   }
@@ -75,7 +75,7 @@ class ConfigInterfaceTest extends PHPUnit_Framework_TestCase
   public function testArrayAccessInterfaceAlterValue()
   {
     $array = array('a' => 'foo', 'b' => 'bar', 'c' => 'baz', 'd' => array(1, 2, 3));
-    $obj = new Radiergummi\libconfig\Config($array);
+    $obj = new Radiergummi\Libconfig\Libconfig($array);
 
     $obj['b'] = 'notbar';
     $this->assertEquals('notbar', $obj['b']);
@@ -84,7 +84,7 @@ class ConfigInterfaceTest extends PHPUnit_Framework_TestCase
   public function testArrayAccessInterfaceAlterNestedValue()
   {
     $array = array(192 => array(168 => array(0 => array(1 => 'router', 2 => 'server'))));
-    $obj = new Radiergummi\libconfig\Config($array);
+    $obj = new Radiergummi\Libconfig\Libconfig($array);
 
     $obj[192][168][0][2] = 'bridge';
 
@@ -94,7 +94,7 @@ class ConfigInterfaceTest extends PHPUnit_Framework_TestCase
   public function testArrayAccessInterfaceSetNewValue()
   {
     $array = array('a' => 'foo', 'b' => 'bar', 'c' => 'baz', 'd' => array(1, 2, 3));
-    $obj = new Radiergummi\libconfig\Config($array);
+    $obj = new Radiergummi\Libconfig\Libconfig($array);
 
     $obj['test'] = 'newValue';
     $this->assertEquals('newValue', $obj['test']);
@@ -103,7 +103,7 @@ class ConfigInterfaceTest extends PHPUnit_Framework_TestCase
   public function testArrayAccessInterfaceSetNewNestedValue()
   {
     $array = array(192 => array(168 => array(0 => array(1 => 'router', 2 => 'server'))));
-    $obj = new Radiergummi\libconfig\Config($array);
+    $obj = new Radiergummi\Libconfig\Libconfig($array);
 
     $obj[192][168][0][10] = 'domaincontroller';
     $this->assertEquals('domaincontroller', $obj[192][168][0][10]);
