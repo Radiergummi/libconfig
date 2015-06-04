@@ -9,17 +9,17 @@ class ConfigTest extends PHPUnit_Framework_TestCase
   public function testCreateObjectWithArrayAsParameter()
   {
     $array = array('a', 'b', 'c');
-    $obj = new Radiergummi\Libconfig\Libconfig($array);
+    $obj = new Radiergummi\Libconfig\Config($array);
     
-    $this->assertInstanceOf('Radiergummi\Libconfig\Libconfig', $obj);
+    $this->assertInstanceOf('Radiergummi\Libconfig\Config', $obj);
   }
 
   public function testCreateObjectWithJSONAsParameter()
   {
     $json = '{"a": "foo", "b": "bar", "c": "baz"}';
-    $obj = new Radiergummi\Libconfig\Libconfig($json);
+    $obj = new Radiergummi\Libconfig\Config($json);
     
-    $this->assertInstanceOf('Radiergummi\Libconfig\Libconfig', $obj);
+    $this->assertInstanceOf('Radiergummi\Libconfig\Config', $obj);
   }
 
   public function testCreateObjectWithMalformedJSONAsParameter()
@@ -28,13 +28,13 @@ class ConfigTest extends PHPUnit_Framework_TestCase
     
     $this->setExpectedException('\RuntimeException');
     
-    $obj = new Radiergummi\Libconfig\Libconfig($json);
+    $obj = new Radiergummi\Libconfig\Config($json);
   }
 
   public function testGetValue() 
   {
     $array = array('a' => 'foo', 'b' => 'bar', 'c' => 'baz');
-    $obj = new Radiergummi\Libconfig\Libconfig($array);
+    $obj = new Radiergummi\Libconfig\Config($array);
 
     $this->assertEquals('foo', $obj->get('a'));
   }
@@ -42,7 +42,7 @@ class ConfigTest extends PHPUnit_Framework_TestCase
   public function testGetNestedValue()
   {
     $json = '{ "a": "foo", "b": { "sub": { "key": "value" } } }';
-    $obj = new Radiergummi\Libconfig\Libconfig($json);
+    $obj = new Radiergummi\Libconfig\Config($json);
     
     $this->assertEquals('value', $obj->get('b.sub.key'));
   }
@@ -50,7 +50,7 @@ class ConfigTest extends PHPUnit_Framework_TestCase
   public function testGetWholeConfig()
   {
     $array = array('a' => 'foo', 'b' => 'bar', 'c' => 'baz');
-    $obj = new Radiergummi\Libconfig\Libconfig($array);
+    $obj = new Radiergummi\Libconfig\Config($array);
     
     $this->assertEquals($array, $obj->get());
   }
@@ -58,7 +58,7 @@ class ConfigTest extends PHPUnit_Framework_TestCase
   public function testObjectHasValue()
   {
     $json = '{"a": "foo", "b": "bar", "c": "baz"}';
-    $obj = new Radiergummi\Libconfig\Libconfig($json);
+    $obj = new Radiergummi\Libconfig\Config($json);
     
     $this->assertTrue($obj->has('a'));
   }
@@ -66,7 +66,7 @@ class ConfigTest extends PHPUnit_Framework_TestCase
   public function testEraseKeyFromObject()
   {
     $json = '{"a": "foo", "b": "bar", "c": "baz"}';
-    $obj = new Radiergummi\Libconfig\Libconfig($json);
+    $obj = new Radiergummi\Libconfig\Config($json);
 
     $this->assertTrue($obj->has('a'));
 
@@ -78,7 +78,7 @@ class ConfigTest extends PHPUnit_Framework_TestCase
   public function testSetValue()
   {
     $json = '{"a": "foo", "b": "bar", "c": "baz"}';
-    $obj = new Radiergummi\Libconfig\Libconfig($json);
+    $obj = new Radiergummi\Libconfig\Config($json);
     
     $obj->set('key', 'value');
     
@@ -88,7 +88,7 @@ class ConfigTest extends PHPUnit_Framework_TestCase
   public function testSetNestedValue()
   {
     $json = '{"a": "foo", "b": "bar", "c": "baz"}';
-    $obj = new Radiergummi\Libconfig\Libconfig($json);
+    $obj = new Radiergummi\Libconfig\Config($json);
     
     $obj->set('key.sub.stuff', 'content');
     
@@ -101,7 +101,7 @@ class ConfigTest extends PHPUnit_Framework_TestCase
     $first = '{"a": "foo", "b": "bar", "c": "baz"}';
     $second = array('b' => 'notbar', 'a' => 'foo', 'jack' => 'hughes');
 
-    $obj = new Radiergummi\Libconfig\Libconfig($first);
+    $obj = new Radiergummi\Libconfig\Config($first);
     
     $obj->add($second);
 
@@ -112,7 +112,7 @@ class ConfigTest extends PHPUnit_Framework_TestCase
   {
     $array = array('a' => 'foo', 'b' => 'bar', 'c' => 'baz');
 
-    $obj = new Radiergummi\Libconfig\Libconfig($array);
+    $obj = new Radiergummi\Libconfig\Config($array);
     
     $this->assertEquals($array, unserialize($obj));
   }
