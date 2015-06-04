@@ -9,5 +9,5 @@ define('DS', DIRECTORY_SEPARATOR);
 define('PATH', dirname(__FILE__) . DS);
 
 
-require PATH . '../src/libconfig.php';
+require PATH . '../src/Libconfig/Config.php';
 /* EOF: bootstrap.php */
