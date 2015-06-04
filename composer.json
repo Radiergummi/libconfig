@@ -1,0 +1,24 @@
+{
+    "name": "radiergummi/libconfig",
+    "type": "library",
+    "description": "Configuration object creation for PHP apps",
+    "keywords": ["config","configuration"],
+    "homepage": "https://github.com/Radiergummi/libconfig",
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "Moritz Friedrich",
+        "email": "m@9dev.de",
+        "homepage": "http://moritzfriedrich.com",
+        "role": "Developer"
+      }
+    ],
+    "require": {
+      "php": ">=5.3.0"
+    },
+    "autoload": {
+      psr-4": {
+        "Libconfig\\": "src/Libconfig"
+      }
+    }
+}
