@@ -8,6 +8,26 @@ Basically, you can just throw your configuration at it, be it arrays, json, file
 > Note: I also made a singleton version of this which is available [here](/../../tree/singleton).  
 > Why? Because using stuff like `Config::get('key')` from anywhere without an instance is pretty darn comfortable.
 
+# Installation
+
+###Installation via Composer (Packagist):
+
+1. Include the following in your _composer.json_ file:
+
+        "require": {
+            ...
+            "radiergummi\libconfig": "~1.0"
+        }
+
+2. Then, run `php composer.phar install`
+
+###Installation via source:
+
+1. Download from [Github](http://github.com/Radiergummi/libconfig, "Github Page for libconfig")
+2. Drop the _src/libconfig_ folder into your codebase at `vendor/Radiergummi` (you don't need the parent folders)
+3. Use a [PSR-4 Autoloader](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4.md, "PSR-4 Standards Explanation") to include it!
+
+
 # Usage
 
 ## Creating a Config object
