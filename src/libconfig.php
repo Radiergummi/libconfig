@@ -1,5 +1,4 @@
 <?php
-// Advice: change namespace to "<your app>\lib" 
 namespace Radiergummi\libconfig;
 
 /**
