@@ -1,5 +1,5 @@
 <?php
-namespace Radiergummi\libconfig;
+namespace Radiergummi\Libconfig;
 
 /**
  * General purpose config class
@@ -7,7 +7,7 @@ namespace Radiergummi\libconfig;
  * @package libconfig
  * @author Radiergummi <m@9dev.de>
  */
-class Libconfig extends \ArrayObject
+class Config extends \ArrayObject
 {
 
   /**
