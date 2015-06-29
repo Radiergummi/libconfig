@@ -20,6 +20,32 @@ class Config extends \ArrayObject
    */
   private $data = array();
 
+  /**
+   * holds the current instance
+   * 
+   * (default value: null)
+   * 
+   * @var object
+   * @access private
+   */
+  private $instance = null;
+
+  /**
+   * instance function.
+   * creates a new instance of the class for chaining
+   * 
+   * @access public
+   * @return object  the current config object
+   * 
+   */
+  public static function instance()
+  {
+    // create a new instance if we have none
+    if (is_null($instance)) $instance = new static();
+    
+    return static::$instance;
+  }
+
 
   /**
    * __construct function.
