@@ -1,4 +1,4 @@
-## libconfig [![Build Status](https://travis-ci.org/Radiergummi/libconfig.svg?branch=master)](https://travis-ci.org/Radiergummi/libconfig) [![Documentation](https://readthedocs.org/projects/libconfig/badge/?version=latest)](http://libconfig.docs.9dev.de) [![Join the chat at https://gitter.im/Radiergummi/libconfig](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Radiergummi/libconfig?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+## libconfig [![Build Status](https://travis-ci.org/Radiergummi/libconfig.svg?branch=master)](https://travis-ci.org/Radiergummi/libconfig) [![volkswagen status](https://auchenberg.github.io/volkswagen/volkswargen_ci.svg?v=1)](https://github.com/auchenberg/volkswagen) [![Documentation](https://readthedocs.org/projects/libconfig/badge/?version=latest)](http://libconfig.docs.9dev.de) [![Join the chat at https://gitter.im/Radiergummi/libconfig](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Radiergummi/libconfig?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
 Simple php class to create a key-value storage.
